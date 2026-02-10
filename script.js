@@ -814,6 +814,12 @@ function renderTournamentDetails(id) {
 
     const isCompleted = tournament.status === 'completed';
 
+    const getBracketEmoji = (pName) => {
+        if (!tournament.standings) return '';
+        const playerRecord = tournament.standings.find(s => s.player === pName);
+        return playerRecord && playerRecord.deck ? getDeckEmoji(playerRecord.deck) : '';
+    };
+
     detailView.innerHTML = `
         <button onclick="window.history.back()" class="mb-10 flex items-center gap-2 text-purple-400 font-extrabold hover:text-purple-300 transition">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> ${t('go-back')}
@@ -915,11 +921,15 @@ function renderTournamentDetails(id) {
                                             <div class="relative glass-card overflow-hidden">
                                                 <div class="flex flex-col divide-y divide-white/5">
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player1 ? 'bg-purple-500/20' : ''}">
-                                                        <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">${match.player1}</span>
+                                                        <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">
+                                                            <span class="mr-1">${getBracketEmoji(match.player1)}</span>${match.player1}
+                                                        </span>
                                                         ${match.winner === match.player1 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player2 ? 'bg-purple-500/20' : ''}">
-                                                        <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'}">${match.player2}</span>
+                                                        <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'}">
+                                                            <span class="mr-1">${getBracketEmoji(match.player2)}</span>${match.player2}
+                                                        </span>
                                                         ${match.winner === match.player2 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
                                                 </div>
@@ -939,11 +949,15 @@ function renderTournamentDetails(id) {
                                             <div class="relative glass-card overflow-hidden">
                                                 <div class="flex flex-col divide-y divide-white/5">
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player1 ? 'bg-purple-500/20' : ''}">
-                                                        <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">${match.player1}</span>
+                                                        <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">
+                                                            <span class="mr-1">${getBracketEmoji(match.player1)}</span>${match.player1}
+                                                        </span>
                                                         ${match.winner === match.player1 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player2 ? 'bg-purple-500/20' : ''}">
-                                                        <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'}">${match.player2}</span>
+                                                        <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'}">
+                                                            <span class="mr-1">${getBracketEmoji(match.player2)}</span>${match.player2}
+                                                        </span>
                                                         ${match.winner === match.player2 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
                                                 </div>
@@ -964,11 +978,15 @@ function renderTournamentDetails(id) {
                                         </div>
                                         <div class="flex flex-col divide-y divide-white/5">
                                             <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'bg-yellow-500/20' : ''}">
-                                                <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'text-white' : 'text-slate-400'}">${tournament.bracket.final.player1}</span>
+                                                <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'text-white' : 'text-slate-400'}">
+                                                    <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player1)}</span>${tournament.bracket.final.player1}
+                                                </span>
                                                 ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
                                             </div>
                                             <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'bg-yellow-500/20' : ''}">
-                                                <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'text-white' : 'text-slate-400'}">${tournament.bracket.final.player2}</span>
+                                                <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'text-white' : 'text-slate-400'}">
+                                                    <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player2)}</span>${tournament.bracket.final.player2}
+                                                </span>
                                                 ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
                                             </div>
                                         </div>
