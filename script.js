@@ -368,7 +368,7 @@ const tournaments = [{
     bracket: {
         quarterfinals: [
             { player1: '고윤성', player2: '황상진', winner: '고윤성' },
-            { player1: '진시우', player2: '이태연', winner: '이태연' },
+            { player1: '전시우', player2: '이태연', winner: '이태연' },
             { player1: '김도현', player2: '김민서', winner: '김도현' },
             { player1: '이주영', player2: '박성민', winner: '이주영' }
         ],
