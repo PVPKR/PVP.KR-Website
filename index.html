@@ -14,9 +14,9 @@
     <meta name="description" content="쿠키런 브레이버스 토너먼트 분석 및 메타 순위 정보">
     <meta property="og:title" content="PVP.KR - 쿠키런: 브레이버스 토너먼트 결과 및 분석">
     <meta property="og:description" content="최신 우승 덱 리스트와 토너먼트 분석 데이터를 확인하세요.">
-    <meta property="og:image" content="pvpkr_logo.webp">
+    <meta property="og:image" content="assets/images/pvpkr_logo.webp">
     <meta property="og:type" content="website">
-    <link rel="shortcut icon" href="pvpkr_logo.webp" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/pvpkr_logo.webp" type="image/x-icon">
 </head>
 
 <body>
@@ -25,7 +25,8 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-4 cursor-pointer group" onclick="renderHome()">
                 <div class="relative">
-                    <img src="pvpkr_logo.webp" alt="PVP.KR Logo" class="relative w-14 h-14 object-contain">
+                    <img src="assets/images/pvpkr_logo.webp" alt="PVP.KR Logo"
+                        class="relative w-14 h-14 object-contain">
                 </div>
                 <div>
                     <h1 class="text-3xl font-black gradient-text tracking-tighter">PVP.KR</h1>
@@ -34,9 +35,16 @@
                         Tournament Results & Analytics</p>
                 </div>
             </div>
-            <nav class="hidden md:flex gap-8 font-bold text-[var(--nav-text)]">
-                <a href="#tournaments-section" class="hover:text-purple-400 transition"
+            <nav class="hidden md:flex gap-8 items-center font-bold text-[var(--nav-text)]">
+                <a href="#tournaments-section" id="nav-tournaments" class="hover:text-purple-400 transition"
                     onclick="if(window.location.hash !== '') { renderHome(); setTimeout(() => document.getElementById('tournaments-section').scrollIntoView({behavior: 'smooth'}), 100); }">Tournaments</a>
+                <div class="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 ml-4">
+                    <button id="lang-ko" onclick="setLanguage('ko')"
+                        class="text-xs transition-colors duration-200">KO</button>
+                    <div class="w-[1px] h-3 bg-white/20"></div>
+                    <button id="lang-en" onclick="setLanguage('en')"
+                        class="text-xs opacity-40 hover:opacity-100 transition-colors duration-200">EN</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -47,8 +55,10 @@
             <section>
                 <div class="flex items-center gap-3 mb-10">
                     <div class="w-2 h-8 bg-purple-600 rounded-full"></div>
-                    <h2 class="text-4xl font-black text-white tracking-tight">Top Decks (BS8~BS9)</h2>
+                    <h2 id="section-top-decks" class="text-4xl font-black text-white tracking-tight">Top Decks (BS8~BS9)
+                    </h2>
                 </div>
+
                 <div id="top-decks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Loaded via JS -->
                 </div>
@@ -67,7 +77,7 @@
                                 <line x1="8" y1="2" x2="8" y2="6" />
                                 <line x1="3" y1="10" x2="21" y2="10" />
                             </svg>
-                            <h2 class="text-2xl font-black text-white">최근 토너먼트</h2>
+                            <h2 id="section-recent-tournaments" class="text-2xl font-black text-white">최근 토너먼트</h2>
                         </div>
                         <div id="recent-tournaments-list" class="space-y-4">
                             <!-- Loaded via JS -->
@@ -82,7 +92,7 @@
                                 <polygon
                                     points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                             </svg>
-                            <h2 class="text-2xl font-black text-white">다가올 토너먼트</h2>
+                            <h2 id="section-upcoming-tournaments" class="text-2xl font-black text-white">다가올 토너먼트</h2>
                         </div>
                         <div id="upcoming-tournaments-list" class="space-y-4">
                             <!-- Loaded via JS -->
@@ -101,7 +111,7 @@
                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
-                            <h2 class="text-2xl font-black text-white">2월 브레이브 리그</h2>
+                            <h2 id="section-brave-league" class="text-2xl font-black text-white">2월 브레이브 리그</h2>
                         </div>
                         <div id="brave-league-list" class="grid grid-cols-1 gap-4">
                             <!-- Loaded via JS -->
@@ -123,7 +133,8 @@
 
             <div class="flex flex-col items-center gap-6">
                 <div>
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black mb-4">Contact Us</p>
+                    <p id="footer-contact"
+                        class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black mb-4">Contact Us</p>
                     <div class="flex items-center gap-6 justify-center">
                         <a href="mailto:pvpkr@proton.me"
                             class="flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-purple-400 transition">
@@ -148,9 +159,8 @@
                     </div>
                 </div>
 
-                <p class="text-slate-600 font-bold text-[11px] leading-relaxed">
-                    © 2026 PVP.KR. All rights reserved.
-                </p>
+                © 2026 PVP.KR. <span id="footer-rights">All rights reserved.</span>
+
             </div>
         </div>
     </footer>
