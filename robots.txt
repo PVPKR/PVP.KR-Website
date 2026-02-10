@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 우리 사이트의 지도(Sitemap) 위치를 알려줍니다.
+Sitemap: https://pvp.kr/sitemap.xml

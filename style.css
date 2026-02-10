@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'CookieRun';
+    src: url('CookieRun Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'CookieRun';
+    src: url('CookieRun Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'CookieRun';
+    src: url('CookieRun Black.ttf') format('truetype');
+    font-weight: 900;
+}
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    --header-bg: rgba(2, 6, 23, 0.8);
+    --header-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-heading: #ffffff;
+    --text-muted: #94a3b8;
+    --card-bg: rgba(30, 41, 59, 0.4);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-hover-bg: rgba(30, 41, 59, 0.6);
+    --accent-purple: #a855f7;
+    --nav-text: #cbd5e1;
+    --footer-bg: #020617;
+    --card-inner-bg: linear-gradient(135deg, #1e293b 0%, #020617 100%);
+    --stat-bg-green: rgba(20, 184, 166, 0.1);
+    --stat-bg-blue: rgba(59, 130, 246, 0.1);
+}
+
+body {
+    font-family: 'CookieRun', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+    background-attachment: fixed;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+.font-black,
+.font-extrabold {
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    background: var(--card-hover-bg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.neon-glow {
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.pie-chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
