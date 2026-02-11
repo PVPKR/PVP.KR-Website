@@ -45,6 +45,8 @@ const translations = {
         'decks-count': 'Decks',
         'overall-dist': '전체 분포',
         'topcut-dist': '본선 진출 분포',
+        'top4-dist': '4강 분포',
+        'winner-dist': '우승자 분포',
         'bracket': '토너먼트 대진표',
         'final-standings': '최종 순위',
         'latest-finishes': '최근 대회 기록',
@@ -58,7 +60,7 @@ const translations = {
         'section-top-decks': 'Top Decks (BS8~BS9)',
         'section-recent-tournaments': 'Recent Tournaments',
         'section-upcoming-tournaments': 'Upcoming Tournaments',
-        'section-brave-league': 'Feb. Brave League',
+        'section-brave-league': 'Brave League (Feb)',
         'footer-contact': 'Contact Us',
         'footer-rights': 'All rights reserved.',
         'btn-all-brave': 'ALL BRAVE LEAGUE',
@@ -96,10 +98,13 @@ const translations = {
         'decks-count': 'Decks',
         'overall-dist': 'Overall Distribution',
         'topcut-dist': 'Finals Qualifiers Distribution',
+        'top4-dist': 'Top 4 Distribution',
+        'winner-dist': 'Winner Distribution',
         'bracket': 'Tournament Bracket',
         'final-standings': 'Final Standings',
         'latest-finishes': 'Latest Tournament Finishes',
         'competitive-player': 'Competitive Player',
+        'deck-results': 'Tournament Deck Results',
         'site-title': 'PVP.KR - CookieRun: Braverse Tournament Results & Analytics',
         'site-description': 'CookieRun Braverse tournament analysis and meta ranking information.',
         'og-description': 'Check out the latest winning deck lists and tournament analysis data.'
@@ -270,6 +275,31 @@ const tournaments = [{
         { rank: 16, player: '신재용', deck: '적색 덱', score: '5-2', swissRank: 2, country: 'KR' }
     ]
 }, {
+    id: 3, name: '2025 브레이브 리그 시즌 4 파이널', nameEn: '2025 Brave League Season 4 Final', date: '2025-12-13', status: 'completed', participants: 51, location: '서울',
+    bracket: {
+        quarterfinals: [
+            { player1: '심건우', player2: '손영균', winner: '심건우' },
+            { player1: '김태경', player2: '이정훈', winner: '김태경' },
+            { player1: '윤세호', player2: '이창민', winner: '이창민' },
+            { player1: '송윤태', player2: '이주호', winner: '송윤태' }
+        ],
+        semifinals: [
+            { player1: '심건우', player2: '송윤태', winner: '심건우' },
+            { player1: '이창민', player2: '김태경', winner: '이창민' }
+        ],
+        final: { player1: '심건우', player2: '이창민', winner: '심건우' }
+    },
+    standings: [
+        { rank: 1, player: '심건우', deck: '녹색 덱', score: '5-1', country: 'KR' },
+        { rank: 2, player: '이창민', deck: '청색 덱', score: '5-1', country: 'KR' },
+        { rank: 3, player: '김태경', deck: '녹색 덱', score: '5-1', country: 'KR' },
+        { rank: 4, player: '송윤태', deck: '적색 덱', score: '5-1', country: 'KR' },
+        { rank: 5, player: '윤세호', deck: '청색 덱', score: '5-1', country: 'KR' },
+        { rank: 6, player: '이주호', deck: '황색 덱', score: '5-1', country: 'KR' },
+        { rank: 7, player: '이정훈', deck: '황색 덱', score: '4-2', country: 'KR' },
+        { rank: 8, player: '손영균', deck: '청색 덱', score: '4-2', country: 'KR' }
+    ]
+}, {
     id: 107, name: '브레이브 리그 - 서울 역삼 토너먼트센터', date: '2026-02-07', status: 'completed', participants: 11, location: '서울 역삼',
     topCutDistribution: { '녹색 덱': 2, '황색 덱': 1, '적색 덱': 1 },
     bracket: {
@@ -434,7 +464,12 @@ const playerDatabase = {
     '이충현': { name: '이충현', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 7, deck: '황색 덱' }] },
     '정기영': { name: '정기영', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 8, deck: '청색 덱' }] },
     '강병렬': { name: '강병렬', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 9, deck: '적색 덱' }] },
-    '이창민': { name: '이창민', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 10, deck: '청색 덱' }] },
+    '이창민': {
+        name: '이창민', country: 'KR', finishes: [
+            { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 10, deck: '청색 덱' },
+            { tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 2, deck: '청색 덱' }
+        ]
+    },
     '이희지': { name: '이희지', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 11, deck: '청색 덱' }] },
     '임정훈': {
         name: '임정훈', country: 'KR', finishes: [
@@ -445,7 +480,8 @@ const playerDatabase = {
     '이주호': {
         name: '이주호', country: 'KR', finishes: [
             { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 13, deck: '황색 덱' },
-            { tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 2, deck: '적색 덱' }
+            { tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 2, deck: '적색 덱' },
+            { tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 6, deck: '황색 덱' }
         ]
     },
     '이태연': { name: '이태연', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 14, deck: '녹색 덱' }] },
@@ -457,7 +493,12 @@ const playerDatabase = {
     '김선규': { name: '김선규', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 5, deck: '적색 덱' }] },
     '허승주': { name: '허승주', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 6, deck: '녹색 덱' }] },
     '이현수': { name: '이현수', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 7, deck: '녹색 덱' }] },
-    '송윤태': { name: '송윤태', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 8, deck: '녹색 덱' }] },
+    '송윤태': {
+        name: '송윤태', country: 'KR', finishes: [
+            { tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 8, deck: '녹색 덱' },
+            { tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 4, deck: '적색 덱' }
+        ]
+    },
     '이준희': { name: '이준희', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 9, deck: '자색 덱' }] },
     '최다현': { name: '최다현', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 10, deck: '황색 덱' }] },
     '장하준': { name: '장하준', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 11, deck: '자색 덱' }] },
@@ -477,7 +518,11 @@ const playerDatabase = {
     '김종민': { name: '김종민', country: 'KR', finishes: [] },
     '한상원': { name: '한상원', country: 'KR', finishes: [] },
     '왕현식': { name: '왕현식', country: 'KR', finishes: [] },
-    '김태경': { name: '김태경', country: 'KR', finishes: [] },
+    '김태경': { name: '김태경', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 3, deck: '녹색 덱' }] },
+    '심건우': { name: '심건우', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 1, deck: '녹색 덱' }] },
+    '윤세호': { name: '윤세호', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 5, deck: '청색 덱' }] },
+    '이정훈': { name: '이정훈', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 7, deck: '황색 덱' }] },
+    '손영균': { name: '손영균', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 8, deck: '청색 덱' }] },
     '황상진': { name: '황상진', country: 'KR', finishes: [] },
     '이가온': { name: '이가온', country: 'KR', finishes: [] },
     '김도현': { name: '김도현', country: 'KR', finishes: [] },
@@ -485,10 +530,10 @@ const playerDatabase = {
     '김동환': { name: '김동환', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 1, deck: '적색 덱' }] },
     '안민섭': { name: '안민섭', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 부산 포춘팩토리', date: '2026-02-07', rank: 1, deck: '청색 덱' }] },
     '차주환': { name: '차주환', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 1, deck: '황색 덱' }] },
-    '윤영진': { name: '윤영진', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 3, deck: '청색 덱' }] },
-    '김지민': { name: '김지민', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 4, deck: '녹색 덱' }] },
-    '순대': { name: '순대', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 5, deck: '자색 덱' }] },
-    '안현빈': { name: '안현빈', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 7, deck: '자색 덱' }] }
+    '윤영진': { name: '윤영진', country: 'KR', finishes: [] },
+    '김지민': { name: '김지민', country: 'KR', finishes: [] },
+    '순대': { name: '순대', country: 'KR', finishes: [] },
+    '안현빈': { name: '안현빈', country: 'KR', finishes: [] }
 };
 
 // Update existing players in database - ONLY WINNERS for Brave League
@@ -525,7 +570,7 @@ const braveLeagueTournaments = [
 ];
 
 const upcomingTournaments = [
-    { id: 2, name: '월드 챔피언십 25-26', nameEn: 'World Championship 25-26', date: '2026년 4월 (예정)', dateEn: 'April 2026 (TBD)', status: 'upcoming' },
+    { id: 2, name: '월드 챔피언십 25-26', nameEn: 'World Championship 25-26', date: '2026년 4월 (예정)', dateEn: 'April 2026 (TBD)', status: 'upcoming', externalURL: 'https://cookierunbraverse.com/ko/notice/detail?id=994' },
     { id: 3, name: '브레이브리그 파이널 시즌 1', nameEn: 'Brave League Final Season 1', date: '2026년 6월 (예정)', dateEn: 'June 2026 (TBD)', status: 'upcoming' },
     { id: 4, name: '26-27 썸머 챔피언컵', nameEn: '26-27 Summer Champion Cup', date: '2026년 7월 (예정)', dateEn: 'July 2026 (TBD)', status: 'upcoming' },
     { id: 5, name: '브레이브리그 파이널 시즌 2', nameEn: 'Brave League Final Season 2', date: '2026년 9월 (예정)', dateEn: 'September 2026 (TBD)', status: 'upcoming' },
@@ -689,21 +734,21 @@ function renderHomeView() {
     decksGrid.innerHTML = topDecks.map((deck, idx) => {
         const deckImg = currentLang === 'en' ? (deck.mainCardEn || deck.mainCard) : deck.mainCard;
         return `
-            <div class="glass-card p-6 flex flex-col items-center">
-                <span class="text-purple-500 font-black text-xl mb-4">#${idx + 1}</span>
-                <div class="w-full aspect-[3/4] mb-6 rounded-xl overflow-hidden shadow-inner border border-[var(--card-border)] flex items-center justify-center" style="background: var(--card-inner-bg)">
-                    ${deckImg ? `<img src="${deckImg}" class="w-full h-full object-contain p-2">` : `<span class="text-7xl">${deck.emoji}</span>`}
+            <div class="glass-card p-4 md:p-6 flex flex-col items-center">
+                <span class="text-purple-500 font-black text-lg md:text-xl mb-3 md:mb-4">#${idx + 1}</span>
+                <div class="w-full aspect-[3/4] mb-3 md:mb-6 rounded-xl overflow-hidden shadow-inner border border-[var(--card-border)] flex items-center justify-center" style="background: var(--card-inner-bg)">
+                    ${deckImg ? `<img src="${deckImg}" class="w-full h-full object-contain p-2">` : `<span class="text-5xl md:text-7xl">${deck.emoji}</span>`}
                 </div>
-                <h3 class="text-xl font-extrabold text-[var(--text-heading)] mb-2">${getTranslatedDeckName(deck.name)}</h3>
-                <p class="text-sm font-semibold text-[var(--text-muted)] mb-6">${deck.deckCount} ${t('decks-count')}</p>
-                <div class="grid grid-cols-2 gap-4 w-full">
-                    <div class="text-center p-2 rounded-xl border border-green-500/20" style="background: var(--stat-bg-green)">
-                        <div class="text-lg font-bold text-green-400">${deck.winRate}%</div>
-                        <div class="text-[10px] uppercase tracking-wider text-green-300/60 font-bold">${t('win-rate')}</div>
+                <h3 class="text-base md:text-xl font-extrabold text-[var(--text-heading)] mb-1 md:mb-2 text-center line-clamp-1">${getTranslatedDeckName(deck.name)}</h3>
+                <p class="text-[10px] md:text-sm font-semibold text-[var(--text-muted)] mb-4 md:mb-6">${deck.deckCount} ${t('decks-count')}</p>
+                <div class="grid grid-cols-2 gap-2 md:gap-4 w-full">
+                    <div class="text-center p-1.5 md:p-2 rounded-xl border border-green-500/20" style="background: var(--stat-bg-green)">
+                        <div class="text-sm md:text-lg font-bold text-green-400">${deck.winRate}%</div>
+                        <div class="text-[8px] md:text-[10px] uppercase tracking-wider text-green-300/60 font-bold">${t('win-rate')}</div>
                     </div>
-                    <div class="text-center p-2 rounded-xl border border-blue-500/20" style="background: var(--stat-bg-blue)">
-                        <div class="text-lg font-bold text-blue-400">${deck.usage}%</div>
-                        <div class="text-[10px] uppercase tracking-wider text-blue-300/60 font-bold">${t('usage')}</div>
+                    <div class="text-center p-1.5 md:p-2 rounded-xl border border-blue-500/20" style="background: var(--stat-bg-blue)">
+                        <div class="text-sm md:text-lg font-bold text-blue-400">${deck.usage}%</div>
+                        <div class="text-[8px] md:text-[10px] uppercase tracking-wider text-blue-300/60 font-bold">${t('usage')}</div>
                     </div>
                 </div>
             </div>
@@ -778,8 +823,11 @@ function renderHomeView() {
     const displayUpcoming = showAllUpcoming ? upcomingTournaments : upcomingTournaments.slice(0, 3);
 
     upcomingList.innerHTML = displayUpcoming.map(tour => `
-        <div class="p-5 rounded-2xl border border-yellow-500/20 shadow-sm transition-colors" style="background: var(--stat-bg-blue)">
-            <h3 class="font-bold text-[var(--text-heading)]">${currentLang === 'en' ? (tour.nameEn || tour.name) : tour.name}</h3>
+        <div ${tour.externalURL ? `onclick="window.open('${tour.externalURL}', '_blank')"` : ''} class="p-5 rounded-2xl border border-yellow-500/20 shadow-sm transition-colors ${tour.externalURL ? 'cursor-pointer hover:border-yellow-500/50 hover:bg-yellow-500/5' : ''}" style="background: var(--stat-bg-blue)">
+            <h3 class="font-bold text-[var(--text-heading)] flex items-center gap-2">
+                ${currentLang === 'en' ? (tour.nameEn || tour.name) : tour.name}
+                ${tour.externalURL ? '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-slate-500"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>' : ''}
+            </h3>
             <p class="text-sm font-semibold text-orange-500 mt-1">🗓 ${currentLang === 'en' ? (tour.dateEn || tour.date) : tour.date}</p>
         </div>
     `).join('');
@@ -825,26 +873,27 @@ function renderTournamentDetails(id) {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> ${t('go-back')}
         </button>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div class="lg:col-span-2 space-y-10">
-                <section class="glass-card p-10 cursor-pointer hover:border-purple-500/50 transition group" onclick="${tournament.externalURL ? `window.open('${tournament.externalURL}', '_blank')` : ''}">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <h1 class="text-4xl font-black text-[var(--text-heading)]">${currentLang === 'en' ? (tournament.nameEn || tournament.name) : tournament.name}</h1>
-                                ${tournament.externalURL ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600 group-hover:text-purple-400 transition"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>' : ''}
-                            </div>
-                            <div class="flex flex-wrap gap-6 text-slate-400 font-medium">
-                                <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${tournament.date}</span>
-                                <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> ${getTranslatedLocation(tournament.location)}</span>
-                                <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> ${tournament.participants} ${t('participants')}</span>
-                            </div>
-                        </div>
-                        <div class="px-6 py-2 ${isCompleted ? 'bg-green-500 shadow-green-900/40' : 'bg-blue-500 shadow-blue-900/40'} text-white rounded-full font-black text-sm tracking-widest uppercase shadow-lg">
-                            ${isCompleted ? t('completed') : t('upcoming')}
-                        </div>
+        <section class="glass-card p-10 mb-10 cursor-pointer hover:border-purple-500/50 transition group" onclick="${tournament.externalURL ? `window.open('${tournament.externalURL}', '_blank')` : ''}">
+            <div class="flex items-start justify-between">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <h1 class="text-4xl font-black text-[var(--text-heading)]">${currentLang === 'en' ? (tournament.nameEn || tournament.name) : tournament.name}</h1>
+                        ${tournament.externalURL ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600 group-hover:text-purple-400 transition"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>' : ''}
                     </div>
-                </section>
+                    <div class="flex flex-wrap gap-6 text-slate-400 font-medium">
+                        <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${tournament.date}</span>
+                        <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> ${getTranslatedLocation(tournament.location)}</span>
+                        <span class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> ${tournament.participants} ${t('participants')}</span>
+                    </div>
+                </div>
+                <div class="px-6 py-2 ${isCompleted ? 'bg-green-500 shadow-green-900/40' : 'bg-blue-500 shadow-blue-900/40'} text-white rounded-full font-black text-sm tracking-widest uppercase shadow-lg">
+                    ${isCompleted ? t('completed') : t('upcoming')}
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-2 space-y-10 order-2 lg:order-1">
 
                 <section class="space-y-6">
 
@@ -906,19 +955,23 @@ function renderTournamentDetails(id) {
                     </div>
 
                     ${tournament.bracket ? `
-                    <div class="space-y-6 mb-12">
-                         <div class="flex items-center justify-between">
-                            <h2 class="text-2xl font-black text-[var(--text-heading)]">${t('bracket')}</h2>
-                        </div>
-                        <div class="space-y-12 py-10 overflow-x-auto">
-                            <div class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 min-w-max md:min-w-0 px-4">
-                                <!-- Quarterfinals -->
+                    <section class="glass-card p-4 md:p-8 overflow-hidden">
+                    <h2 class="text-xl font-black text-[var(--text-heading)] mb-8 flex items-center gap-2 px-2 md:px-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                        ${t('bracket')}
+                    </h2>
+                    
+                    <div class="overflow-x-auto pb-6 -mx-4 md:mx-0 px-4 md:px-0">
+                        <div class="min-w-max">
+                            <div class="flex items-start gap-12 md:gap-20">
+                                <!-- Round Headers -->
                                 ${tournament.bracket.quarterfinals ? `
-                                <div class="flex flex-col gap-8 w-64">
+                                <div class="flex flex-col gap-12 w-64">
+                                    <div class="text-center font-black text-[var(--text-muted)] text-[10px] uppercase tracking-[0.2em] mb-4">${t('quarterfinals')}</div>
                                     ${tournament.bracket.quarterfinals.map((match, idx) => `
                                         <div class="relative group">
-                                            <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition"></div>
-                                            <div class="relative glass-card overflow-hidden">
+                                            <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600/50 to-pink-600/50 rounded-xl blur opacity-20 group-hover:opacity-40 transition"></div>
+                                            <div class="relative glass-card overflow-hidden border border-white/5">
                                                 <div class="flex flex-col divide-y divide-white/5">
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player1 ? 'bg-purple-500/20' : ''}">
                                                         <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">
@@ -934,8 +987,8 @@ function renderTournamentDetails(id) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            ${idx % 2 === 0 ? '<div class="hidden md:block absolute -right-6 top-[220%] w-6 h-0.5 bg-white/10 origin-left rotate-45 transform translate-y-[-50%] z-0" style="width: 24px;"></div>' : ''}
-                                            <div class="hidden md:block absolute -right-6 top-1/2 w-6 h-0.5 bg-white/10"></div>
+                                            ${idx % 2 === 0 ? '<div class="hidden md:block absolute -right-10 top-1/2 w-10 h-0.5 bg-white/10"></div>' : ''}
+                                            ${idx % 2 === 1 ? '<div class="hidden md:block absolute -right-10 top-1/2 w-10 h-0.5 bg-white/10"></div>' : ''}
                                         </div>
                                     `).join('')}
                                 </div>
@@ -943,8 +996,9 @@ function renderTournamentDetails(id) {
 
                                 <!-- Semifinals -->
                                 <div class="flex flex-col gap-12 w-64">
+                                    <div class="text-center font-black text-[var(--text-muted)] text-[10px] uppercase tracking-[0.2em] mb-4">${tournament.id === 3 ? 'SEMIFINALS' : t('semifinals')}</div>
                                     ${tournament.bracket.semifinals.map((match, idx) => `
-                                        <div class="relative group">
+                                        <div class="relative group ${tournament.bracket.quarterfinals ? (idx === 0 ? 'mt-12' : 'mt-24') : ''}">
                                             <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition"></div>
                                             <div class="relative glass-card overflow-hidden">
                                                 <div class="flex flex-col divide-y divide-white/5">
@@ -962,32 +1016,34 @@ function renderTournamentDetails(id) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            ${idx === 0 ? '<div class="hidden md:block absolute -right-10 top-1/2 w-10 h-0.5 bg-white/10"></div>' : ''}
-                                            ${idx === 1 ? '<div class="hidden md:block absolute -right-10 top-1/2 w-10 h-0.5 bg-white/10"></div>' : ''}
+                                            <div class="hidden md:block absolute -right-10 top-1/2 w-10 h-0.5 bg-white/10"></div>
                                         </div>
                                     `).join('')}
                                 </div>
 
                                 <!-- Final -->
-                                <div class="relative w-80 group">
-                                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-                                    <div class="relative glass-card border-2 border-yellow-500/50 shadow-[0_0_30px_rgba(234,179,8,0.2)]">
-                                        <div class="bg-yellow-500/10 px-4 py-2 border-b border-yellow-500/30 flex items-center justify-center gap-2">
-                                            <span class="text-lg">👑</span>
-                                            <span class="text-xs font-black text-yellow-500 tracking-widest uppercase">${t('grand-final')}</span>
-                                        </div>
-                                        <div class="flex flex-col divide-y divide-white/5">
-                                            <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'bg-yellow-500/20' : ''}">
-                                                <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'text-white' : 'text-slate-400'}">
-                                                    <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player1)}</span>${tournament.bracket.final.player1}
-                                                </span>
-                                                ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
+                                <div class="flex flex-col gap-12 w-80">
+                                    <div class="text-center font-black text-yellow-500 text-[10px] uppercase tracking-[0.2em] mb-4 font-black">${t('grand-final')}</div>
+                                    <div class="relative group ${tournament.bracket.quarterfinals ? 'mt-48' : 'mt-12'}">
+                                        <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+                                        <div class="relative glass-card border-2 border-yellow-500/50 shadow-[0_0_30px_rgba(234,179,8,0.2)] overflow-hidden">
+                                            <div class="bg-yellow-500/10 px-4 py-2 border-b border-yellow-500/30 flex items-center justify-center gap-2">
+                                                <span class="text-lg">👑</span>
+                                                <span class="text-xs font-black text-yellow-500 tracking-widest uppercase">${t('grand-final')}</span>
                                             </div>
-                                            <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'bg-yellow-500/20' : ''}">
-                                                <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'text-white' : 'text-slate-400'}">
-                                                    <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player2)}</span>${tournament.bracket.final.player2}
-                                                </span>
-                                                ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
+                                            <div class="flex flex-col divide-y divide-white/5">
+                                                <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'bg-yellow-500/20' : ''}">
+                                                    <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'text-white' : 'text-slate-400'}">
+                                                        <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player1)}</span>${tournament.bracket.final.player1}
+                                                    </span>
+                                                    ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
+                                                </div>
+                                                <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'bg-yellow-500/20' : ''}">
+                                                    <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'text-white' : 'text-slate-400'}">
+                                                        <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player2)}</span>${tournament.bracket.final.player2}
+                                                    </span>
+                                                    ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -995,12 +1051,12 @@ function renderTournamentDetails(id) {
                             </div>
                         </div>
                     </div>
-                    ` : ''}
+                </section>    ` : ''}
 
                 </section>
             </div>
 
-            <div class="space-y-8">
+            <div class="space-y-8 order-1 lg:order-2">
                 <section class="glass-card p-8">
                     <h2 class="text-xl font-black text-[var(--text-heading)] mb-8 flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10Z"/></svg>
@@ -1101,26 +1157,60 @@ function renderAllBraveLeagueView() {
             let totalP = 0;
             let aggMain = {};
             let aggTop = {};
+            let aggTop4 = {};
+            let aggWinner = {};
             const completedBL = tournaments.filter(t => t.id >= 100 && t.status === 'completed');
 
             completedBL.forEach(tour => {
                 totalP += (tour.participants || 0);
+
+                // Overall Distribution
                 if (tour.deckDistribution) {
                     Object.entries(tour.deckDistribution).forEach(([name, count]) => {
                         aggMain[name] = (aggMain[name] || 0) + count;
                     });
                 }
+
+                // Top Cut Distribution
                 if (tour.topCutDistribution) {
                     Object.entries(tour.topCutDistribution).forEach(([name, count]) => {
                         aggTop[name] = (aggTop[name] || 0) + count;
                     });
                 }
+
+                // Top 4 Distribution
+                if (tour.bracket && tour.bracket.semifinals) {
+                    const top4Players = new Set();
+                    tour.bracket.semifinals.forEach(m => {
+                        top4Players.add(m.player1);
+                        top4Players.add(m.player2);
+                    });
+                    top4Players.forEach(pName => {
+                        const s = tour.standings.find(st => st.player === pName);
+                        if (s && s.deck) aggTop4[s.deck] = (aggTop4[s.deck] || 0) + 1;
+                    });
+                } else if (tour.standings) {
+                    tour.standings.slice(0, 4).forEach(s => {
+                        if (s.deck) aggTop4[s.deck] = (aggTop4[s.deck] || 0) + 1;
+                    });
+                }
+
+                // Winner Distribution
+                let winnerDeck = null;
+                if (tour.bracket && tour.bracket.final && tour.bracket.final.winner) {
+                    const ws = tour.standings.find(st => st.player === tour.bracket.final.winner);
+                    if (ws) winnerDeck = ws.deck;
+                } else if (tour.standings) {
+                    const ws = tour.standings.find(st => st.rank === 1);
+                    if (ws) winnerDeck = ws.deck;
+                }
+                if (winnerDeck) aggWinner[winnerDeck] = (aggWinner[winnerDeck] || 0) + 1;
             });
 
             if (completedBL.length === 0) return '';
 
             return `
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
                     <div class="glass-card p-8 flex flex-col justify-center border-l-4 border-purple-500">
                         <div class="text-xs font-black text-purple-400 uppercase tracking-widest mb-2">${t('participants')}</div>
                         <div class="text-5xl font-black text-white">${totalP} <span class="text-xl text-slate-500">${t('deck')}</span></div>
@@ -1128,6 +1218,8 @@ function renderAllBraveLeagueView() {
                     </div>
                     ${renderDistBlock(t('overall-dist'), aggMain)}
                     ${renderDistBlock(t('topcut-dist'), aggTop)}
+                    ${renderDistBlock(t('top4-dist'), aggTop4)}
+                    ${renderDistBlock(t('winner-dist'), aggWinner)}
                 </div>
                 `;
         })()}
