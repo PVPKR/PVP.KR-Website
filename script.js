@@ -280,7 +280,7 @@ const tournaments = [{
         final: { player1: '김민서', player2: '황상진', winner: '김민서' }
     },
     standings: [
-        { rank: 1, player: '김민서', deck: '녹색 덱', score: '3-0', swissRank: 4, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/winner/1968' },
+        { rank: 1, player: '김민서', deck: '녹색 덱', score: '3-0', swissRank: 4, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1968' },
         { rank: 2, player: '황상진', deck: '황색 덱', score: '3-0', swissRank: 2, country: 'KR' },
         { rank: 3, player: '김태경', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR' },
         { rank: 4, player: '김지훈', deck: '적색 덱', score: '3-0', swissRank: 3, country: 'KR' },
@@ -312,7 +312,7 @@ const tournaments = [{
         { rank: 1, player: '김세진', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR' },
         { rank: 2, player: '전시우', deck: '녹색 덱', score: '3-0', swissRank: 2, country: 'KR' },
         { rank: 3, player: '이명준', deck: '황색 덱', score: '2-1', swissRank: 3, country: 'KR' },
-        { rank: 4, player: '김정기', deck: '적색 덱', score: '2-1', swissRank: 4, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/winner/1966' },
+        { rank: 4, player: '김정기', deck: '적색 덱', score: '2-1', swissRank: 4, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1966' },
         { rank: 5, player: '최준하', deck: '황색 덱', score: '2-1', swissRank: 5, country: 'KR' },
         { rank: 6, player: '장진영', deck: '혼색 덱', score: '1-2', swissRank: 6, country: 'KR' },
         { rank: 7, player: '임정섭', deck: '적색 덱', score: '1-2', swissRank: 7, country: 'KR' },
@@ -334,7 +334,7 @@ const tournaments = [{
         { rank: 1, player: '이창섭', deck: '청색 덱', score: '3-0', swissRank: 1, country: 'KR' },
         { rank: 2, player: '이재웅', deck: '적색 덱', score: '2-1', swissRank: 2, country: 'KR' },
         { rank: 3, player: '주강은', deck: '청색 덱', score: '2-1', swissRank: 3, country: 'KR' },
-        { rank: 4, player: '안민섭', deck: '청색 덱', score: '2-1', swissRank: 4, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/winner/1965' },
+        { rank: 4, player: '안민섭', deck: '청색 덱', score: '2-1', swissRank: 4, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1965' },
         { rank: 5, player: '박진영', deck: '녹색 덱', score: '2-1', swissRank: 5, country: 'KR' },
         { rank: 6, player: '안성민', deck: '황색 덱', score: '1-2', swissRank: 6, country: 'KR' },
         { rank: 7, player: '류지현', deck: '청색 덱', score: '1-2', swissRank: 7, country: 'KR' },
@@ -354,7 +354,7 @@ const tournaments = [{
     },
     standings: [
         { rank: 1, player: '차주환', deck: '황색 덱', score: '3-0', swissRank: 1, country: 'KR' },
-        { rank: 2, player: '김동환', deck: '적색 덱', score: '2-1', swissRank: 2, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/winner/1967' },
+        { rank: 2, player: '김동환', deck: '적색 덱', score: '2-1', swissRank: 2, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1967' },
         { rank: 3, player: '윤영진', deck: '청색 덱', score: '2-1', swissRank: 3, country: 'KR' },
         { rank: 4, player: '김지민', deck: '녹색 덱', score: '2-1', swissRank: 4, country: 'KR' },
         { rank: 5, player: '순대', deck: '자색 덱', score: '1-2', swissRank: 5, country: 'KR' },
@@ -379,7 +379,7 @@ const tournaments = [{
         final: { player1: '고윤성', player2: '이주영', winner: '고윤성' }
     },
     standings: [
-        { rank: 1, player: '고윤성', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/winner/1970' },
+        { rank: 1, player: '고윤성', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1970' },
         { rank: 2, player: '이주영', deck: '녹색 덱', score: '3-0', swissRank: 2, country: 'KR' },
         { rank: 3, player: '김도현', deck: '청색 덱', score: '2-1', swissRank: 3, country: 'KR' },
         { rank: 4, player: '전시우', deck: '녹색 덱', score: '2-1', swissRank: 4, country: 'KR' },
@@ -408,7 +408,7 @@ const tournaments = [{
         final: { player1: 'Player 2', player2: 'Player 1', winner: 'Player 1' }
     },
     standings: [
-        { rank: 1, player: 'Player 1', deck: '녹색 덱', score: '-', swissRank: '-', country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/winner/1969' },
+        { rank: 1, player: 'Player 1', deck: '녹색 덱', score: '-', swissRank: '-', country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1969' },
         { rank: 2, player: 'Player 2', deck: '청색 덱', score: '-', swissRank: '-', country: 'KR' },
         { rank: 3, player: 'Player 3', deck: '청색 덱', score: '-', swissRank: '-', country: 'KR' },
         { rank: 4, player: 'Player 4', deck: '청색 덱', score: '-', swissRank: '-', country: 'KR' },
