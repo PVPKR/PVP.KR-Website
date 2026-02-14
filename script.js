@@ -523,13 +523,13 @@ const tournaments = [{
 }, {
     id: 114, name: '브레이브 리그 - 서울 역삼 토너먼트센터', date: '2026-02-14', status: 'completed', participants: 5, location: '서울 역삼',
     deckDistribution: { '적색 덱': 1, '황색 덱': 2, '녹색 덱': 1, '청색 덱': 1 },
-    topCutDistribution: { '녹색 덱': 1 },
+    topCutDistribution: { '녹색 덱': 1, '청색 덱': 1, '황색 덱': 2 },
     standings: [
-        { rank: 1, player: '이태연', deck: '녹색 덱', score: '-', swissRank: '-', country: 'KR' },
-        { rank: 2, player: 'Player 2', score: '-', swissRank: '-', country: 'KR' },
-        { rank: 3, player: 'Player 3', score: '-', swissRank: '-', country: 'KR' },
-        { rank: 4, player: 'Player 4', score: '-', swissRank: '-', country: 'KR' },
-        { rank: 5, player: 'Player 5', score: '-', swissRank: '-', country: 'KR' }
+        { rank: 1, player: '이태연', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '윤세호', deck: '청색 덱', score: '2-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '이정훈', deck: '황색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '김성범', deck: '황색 덱', score: '1-2', swissRank: 4, country: 'KR' },
+        { rank: 5, player: '강병렬', deck: '적색 덱', score: '1-2', swissRank: 5, country: 'KR' }
     ]
 }];
 
@@ -547,7 +547,13 @@ const playerDatabase = {
     '김지훈': { name: '김지훈', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 6, deck: '적색 덱' }] },
     '이충현': { name: '이충현', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 7, deck: '황색 덱' }] },
     '정기영': { name: '정기영', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 8, deck: '청색 덱' }] },
-    '강병렬': { name: '강병렬', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 9, deck: '적색 덱' }] },
+    '김성범': { name: '김성범', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 서울 역삼 토너먼트센터', date: '2026-02-14', rank: 4, deck: '황색 덱' }] },
+    '강병렬': {
+        name: '강병렬', country: 'KR', finishes: [
+            { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 9, deck: '적색 덱' },
+            { tournament: '브레이브 리그 - 서울 역삼 토너먼트센터', date: '2026-02-14', rank: 5, deck: '적색 덱' }
+        ]
+    },
     '이창민': {
         name: '이창민', country: 'KR', finishes: [
             { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 10, deck: '청색 덱' },
@@ -610,8 +616,18 @@ const playerDatabase = {
     '왕현식': { name: '왕현식', country: 'KR', finishes: [] },
     '김태경': { name: '김태경', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 3, deck: '녹색 덱' }] },
     '심건우': { name: '심건우', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 1, deck: '녹색 덱' }] },
-    '윤세호': { name: '윤세호', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 5, deck: '청색 덱' }] },
-    '이정훈': { name: '이정훈', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 7, deck: '황색 덱' }] },
+    '윤세호': {
+        name: '윤세호', country: 'KR', finishes: [
+            { tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 5, deck: '청색 덱' },
+            { tournament: '브레이브 리그 - 서울 역삼 토너먼트센터', date: '2026-02-14', rank: 2, deck: '청색 덱' }
+        ]
+    },
+    '이정훈': {
+        name: '이정훈', country: 'KR', finishes: [
+            { tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 7, deck: '황색 덱' },
+            { tournament: '브레이브 리그 - 서울 역삼 토너먼트센터', date: '2026-02-14', rank: 3, deck: '황색 덱' }
+        ]
+    },
     '손영균': { name: '손영균', country: 'KR', finishes: [{ tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 8, deck: '청색 덱' }] },
     '황상진': { name: '황상진', country: 'KR', finishes: [] },
     '이가온': { name: '이가온', country: 'KR', finishes: [] },
