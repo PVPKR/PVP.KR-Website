@@ -452,12 +452,96 @@ const tournaments = [{
 }, {
     id: 103, name: '브레이브 리그 - 경기 평택 하비베이스', date: '2026-02-07', status: 'completed', participants: 0, location: '경기 평택',
     standings: []
+}, {
+    id: 110, name: '브레이브 리그 - 경기 평택 하비베이스', date: '2026-02-14', status: 'completed', participants: 0, location: '경기 평택',
+    standings: []
+}, {
+    id: 111, name: '브레이브 리그 - 부산 포춘팩토리', date: '2026-02-14', status: 'completed', participants: 6, location: '부산',
+    deckDistribution: { '자색 덱': 2, '적색 덱': 2, '청색 덱': 2 },
+    topCutDistribution: { '자색 덱': 1 },
+    standings: [
+        { rank: 1, player: '류지현', deck: '자색 덱', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 2, player: 'Player 2', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 3, player: 'Player 3', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 4, player: 'Player 4', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 5, player: 'Player 5', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 6, player: 'Player 6', score: '-', swissRank: '-', country: 'KR' }
+    ]
+}, {
+    id: 112, name: '브레이브 리그 - 경기 부천 하비게임몰', date: '2026-02-14', status: 'completed', participants: 14, location: '경기 부천',
+    deckDistribution: { '청색 덱': 3, '자색 덱': 2, '적색 덱': 3, '황색 덱': 3, '녹색 덱': 3 },
+    topCutDistribution: { '청색 덱': 2, '자색 덱': 1, '적색 덱': 2, '황색 덱': 2, '녹색 덱': 1 },
+    bracket: {
+        quarterfinals: [
+            { player1: '고윤성', player2: '이명준', winner: '고윤성' },
+            { player1: '이주호', player2: '황현우', winner: '이주호' },
+            { player1: '임정섭', player2: '한상원', winner: '임정섭' },
+            { player1: '최진욱', player2: '이준희', winner: '이준희' }
+        ],
+        semifinals: [
+            { player1: '고윤성', player2: '이주호', winner: '이주호' },
+            { player1: '임정섭', player2: '이준희', winner: '이준희' }
+        ],
+        final: { player1: '이주호', player2: '이준희', winner: '이주호' }
+    },
+    standings: [
+        { rank: 1, player: '이주호', deck: '황색 덱', score: '3-1', swissRank: 4, country: 'KR' },
+        { rank: 2, player: '이준희', deck: '적색 덱', score: '2-2', swissRank: 7, country: 'KR' },
+        { rank: 3, player: '고윤성', deck: '청색 덱', score: '4-0', swissRank: 1, country: 'KR' },
+        { rank: 4, player: '임정섭', deck: '적색 덱', score: '3-1', swissRank: 3, country: 'KR' },
+        { rank: 5, player: '최진욱', deck: '자색 덱', score: '3-1', swissRank: 2, country: 'KR' },
+        { rank: 6, player: '황현우', deck: '녹색 덱', score: '3-1', swissRank: 5, country: 'KR' },
+        { rank: 7, player: '한상원', deck: '청색 덱', score: '2-2', swissRank: 6, country: 'KR' },
+        { rank: 8, player: '이명준', deck: '황색 덱', score: '2-2', swissRank: 8, country: 'KR' },
+        { rank: 9, player: '임정훈', deck: '황색 덱', score: '2-2', swissRank: 9, country: 'KR' },
+        { rank: 10, player: '조승현', deck: '녹색 덱', score: '2-2', swissRank: 10, country: 'KR' },
+        { rank: 11, player: '전시우', deck: '녹색 덱', score: '2-2', swissRank: 11, country: 'KR' },
+        { rank: 12, player: '조아론', deck: '적색 덱', score: '1-3', swissRank: 12, country: 'KR' },
+        { rank: 13, player: '소재현', deck: '청색 덱', score: '1-3', swissRank: 13, country: 'KR' },
+        { rank: 14, player: '정지원', deck: '자색 덱', score: '0-4', swissRank: 14, country: 'KR' }
+    ]
+}, {
+    id: 113, name: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-14', status: 'completed', participants: 7, location: '창원',
+    deckDistribution: { '적색 덱': 3, '녹색 덱': 2, '자색 덱': 1, '청색 덱': 1 },
+    topCutDistribution: { '적색 덱': 2, '녹색 덱': 1, '자색 덱': 1 },
+    bracket: {
+        semifinals: [
+            { player1: '정기영', player2: '차주환', winner: '차주환' },
+            { player1: '김지민', player2: '안현빈', winner: '김지민' }
+        ],
+        final: { player1: '차주환', player2: '김지민', winner: '차주환' }
+    },
+    standings: [
+        { rank: 1, player: '차주환', deck: '적색 덱', score: '2-1', swissRank: 4, country: 'KR' },
+        { rank: 2, player: '김지민', deck: '녹색 덱', score: '2-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '정기영', deck: '적색 덱', score: '3-0', swissRank: 1, country: 'KR' },
+        { rank: 4, player: '안현빈', deck: '자색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 5, player: '황상철', deck: '청색 덱', score: '1-2', swissRank: 5, country: 'KR' },
+        { rank: 6, player: '황지욱', deck: '녹색 덱', score: '1-2', swissRank: 6, country: 'KR' },
+        { rank: 7, player: '황선빈', deck: '적색 덱', score: '1-2', swissRank: 7, country: 'KR' }
+    ]
+}, {
+    id: 114, name: '브레이브 리그 - 서울 역삼 토너먼트센터', date: '2026-02-14', status: 'completed', participants: 5, location: '서울 역삼',
+    deckDistribution: { '적색 덱': 1, '황색 덱': 2, '녹색 덱': 1, '청색 덱': 1 },
+    topCutDistribution: { '녹색 덱': 1 },
+    standings: [
+        { rank: 1, player: '이태연', deck: '녹색 덱', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 2, player: 'Player 2', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 3, player: 'Player 3', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 4, player: 'Player 4', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 5, player: 'Player 5', score: '-', swissRank: '-', country: 'KR' }
+    ]
 }];
 
 const playerDatabase = {
     '전시우': { name: '전시우', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 1, deck: '녹색 덱' }] },
     '김민서': { name: '김민서', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 2, deck: '녹색 덱' }] },
-    '류지현': { name: '류지현', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 3, deck: '청색 덱' }] },
+    '류지현': {
+        name: '류지현', country: 'KR', finishes: [
+            { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 3, deck: '청색 덱' },
+            { tournament: '브레이브 리그 - 부산 포춘팩토리', date: '2026-02-14', rank: 1, deck: '자색 덱' }
+        ]
+    },
     '김영진': { name: '김영진', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 4, deck: '황색 덱' }] },
     '황정빈': { name: '황정빈', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 5, deck: '녹색 덱' }] },
     '김지훈': { name: '김지훈', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 6, deck: '적색 덱' }] },
@@ -481,10 +565,16 @@ const playerDatabase = {
         name: '이주호', country: 'KR', finishes: [
             { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 13, deck: '황색 덱' },
             { tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 2, deck: '적색 덱' },
-            { tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 6, deck: '황색 덱' }
+            { tournament: '2025 브레이브 리그 시즌 4 파이널', date: '2025-12-13', rank: 6, deck: '황색 덱' },
+            { tournament: '브레이브 리그 - 경기 부천 하비게임몰', date: '2026-02-14', rank: 1, deck: '황색 덱' }
         ]
     },
-    '이태연': { name: '이태연', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 14, deck: '녹색 덱' }] },
+    '이태연': {
+        name: '이태연', country: 'KR', finishes: [
+            { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 14, deck: '녹색 덱' },
+            { tournament: '브레이브 리그 - 서울 역삼 토너먼트센터', date: '2026-02-14', rank: 1, deck: '녹색 덱' }
+        ]
+    },
     '박창남': { name: '박창남', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 15, deck: '청색 덱' }] },
     '이혁준': { name: '이혁준', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 16, deck: '청색 덱' }] },
     '박상진': { name: '박상진', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 1, deck: '자색 덱' }] },
@@ -529,7 +619,12 @@ const playerDatabase = {
     '김정기': { name: '김정기', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 경기 부천 하비게임몰', date: '2026-02-07', rank: 1, deck: '적색 덱' }] },
     '김동환': { name: '김동환', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 1, deck: '적색 덱' }] },
     '안민섭': { name: '안민섭', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 부산 포춘팩토리', date: '2026-02-07', rank: 1, deck: '청색 덱' }] },
-    '차주환': { name: '차주환', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 1, deck: '황색 덱' }] },
+    '차주환': {
+        name: '차주환', country: 'KR', finishes: [
+            { tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-07', rank: 1, deck: '황색 덱' },
+            { tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-14', rank: 1, deck: '적색 덱' }
+        ]
+    },
     '윤영진': { name: '윤영진', country: 'KR', finishes: [] },
     '김지민': { name: '김지민', country: 'KR', finishes: [] },
     '순대': { name: '순대', country: 'KR', finishes: [] },
@@ -551,11 +646,11 @@ const braveLeagueTournaments = [
     { id: 107, name: '서울 역삼 토너먼트센터', date: '2월 7일(토) 15:00', participants: 11 },
     { id: 108, name: '부산 부산더락', date: '2월 8일(일) 14:00', participants: 10 },
     { id: 109, name: '서울 구로 어바웃티씨지', date: '2월 8일(일) 15:00', participants: 16 },
-    { id: 110, name: '부산 하비베이스', date: '2월 14일(토) 13:00', participants: 0 },
-    { id: 111, name: '부산 포춘팩토리', date: '2월 14일(토) 14:00', participants: 0 },
-    { id: 112, name: '경기 부천 하비게임몰', date: '2월 14일(토) 14:00', participants: 0 },
-    { id: 113, name: '창원 마블보드게임', date: '2월 14일(토) 15:00', participants: 0 },
-    { id: 114, name: '서울 역삼 토너먼트센터', date: '2월 14일(토) 15:00', participants: 0 },
+    { id: 110, name: '경기 평택 하비베이스', date: '2월 14일(토) 13:00', participants: 0 },
+    { id: 111, name: '부산 포춘팩토리', date: '2월 14일(토) 14:00', participants: 6 },
+    { id: 112, name: '경기 부천 하비게임몰', date: '2월 14일(토) 14:00', participants: 15 },
+    { id: 113, name: '창원 마블보드게임', date: '2월 14일(토) 15:00', participants: 7 },
+    { id: 114, name: '서울 역삼 토너먼트센터', date: '2월 14일(토) 15:00', participants: 5 },
     { id: 115, name: '경기 성남 카드빈', date: '2월 15일(일) 13:00', participants: 0 },
     { id: 116, name: '부산 부산더락', date: '2월 15일(일) 14:00', participants: 0 },
     { id: 117, name: '서울 마포 롤링다이스', date: '2월 18일(수) 12:00', participants: 0 },
