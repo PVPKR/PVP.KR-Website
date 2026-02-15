@@ -551,6 +551,18 @@ const tournaments = [{
         { rank: 6, player: '김지훈', deck: '적색 덱', score: '1-2', swissRank: 6, country: 'KR' },
         { rank: 7, player: '임정섭', deck: '적색 덱', score: '1-2', swissRank: 7, country: 'KR' }
     ]
+}, {
+    id: 116, name: '브레이브 리그 - 부산 부산더락', date: '2026-02-15', status: 'completed', participants: 7, location: '부산',
+    deckDistribution: { '청색 덱': 3, '자색 덱': 2, '녹색 덱': 1, '적색 덱': 1 },
+    standings: [
+        { rank: 1, player: 'Player 1', deck: '녹색 덱', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 2, player: 'Player 2', deck: '자색 덱', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 3, player: 'Player 3', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 4, player: 'Player 4', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 5, player: 'Player 5', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 6, player: 'Player 6', score: '-', swissRank: '-', country: 'KR' },
+        { rank: 7, player: 'Player 7', score: '-', swissRank: '-', country: 'KR' }
+    ]
 }];
 
 const playerDatabase = {
@@ -689,7 +701,7 @@ const braveLeagueTournaments = [
     { id: 113, name: '창원 마블보드게임', date: '2월 14일(토) 15:00', participants: 7 },
     { id: 114, name: '서울 역삼 토너먼트센터', date: '2월 14일(토) 15:00', participants: 5 },
     { id: 115, name: '경기 성남 카드빈', date: '2월 15일(일) 13:00', participants: 7 },
-    { id: 116, name: '부산 부산더락', date: '2월 15일(일) 14:00', participants: 0 },
+    { id: 116, name: '부산 부산더락', date: '2월 15일(일) 14:00', participants: 7 },
     { id: 117, name: '서울 마포 롤링다이스', date: '2월 18일(수) 12:00', participants: 0 },
     { id: 118, name: '경기 성남 카드빈', date: '2월 18일(수) 15:00', participants: 0 },
     { id: 119, name: '경기 평택 하비베이스', date: '2월 21일(토) 13:00', participants: 0 },
