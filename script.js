@@ -1354,8 +1354,8 @@ function renderAllBraveLeagueView() {
             if (completedBL.length === 0) return '';
 
             return `
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
-                    <div class="glass-card p-8 flex flex-col justify-center border-l-4 border-purple-500">
+                <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+                    <div class="glass-card p-8 col-span-2 lg:col-span-1 flex flex-col justify-center border-l-4 border-purple-500">
                         <div class="text-xs font-black text-purple-400 uppercase tracking-widest mb-2">${t('participants')}</div>
                         <div class="text-5xl font-black text-white">${totalP} <span class="text-xl text-slate-500">${t('deck')}</span></div>
                         <div class="text-xs font-bold text-slate-500 mt-4 italic">${completedBL.length} ${t('completed')}</div>
