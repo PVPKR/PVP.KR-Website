@@ -202,8 +202,8 @@ const tournaments = [{
         final: { player1: '황현우', player2: '고윤성', winner: '고윤성' }
     },
     standings: [
-        { rank: 1, player: '고윤성', deck: '녹색 덱', score: '4-1', swissRank: 3, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1517' },
-        { rank: 2, player: '황현우', deck: '녹색 덱', score: '5-0', swissRank: 1, country: 'KR' },
+        { rank: 1, player: '황현우', deck: '녹색 덱', score: '5-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '고윤성', deck: '녹색 덱', score: '4-1', swissRank: 3, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1517' },
         { rank: 3, player: '김세진', deck: '녹색 덱', score: '4-1', swissRank: 2, country: 'KR' },
         { rank: 4, player: '이태석', deck: '녹색 덱', score: '4-1', swissRank: 4, country: 'KR' },
         { rank: 5, player: '이현수', deck: '청색 덱', score: '3-2', swissRank: 5, country: 'KR' },
@@ -234,9 +234,9 @@ const tournaments = [{
         final: { player1: '황현우', player2: '이주영', winner: '이주영' }
     },
     standings: [
-        { rank: 1, player: '이주영', deck: '녹색 덱', score: '3-1', swissRank: 6, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1518' },
-        { rank: 2, player: '황현우', deck: '녹색 덱', score: '4-0', swissRank: 1, country: 'KR' },
-        { rank: 3, player: '이태연', deck: '녹색 덱', score: '4-0', swissRank: 2, country: 'KR' },
+        { rank: 1, player: '황현우', deck: '녹색 덱', score: '4-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '이태연', deck: '녹색 덱', score: '4-0', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '이주영', deck: '녹색 덱', score: '3-1', swissRank: 6, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1518' },
         { rank: 4, player: '이주호', deck: '황색 덱', score: '3-1', swissRank: 5, country: 'KR' },
         { rank: 5, player: '김선규', deck: '녹색 덱', score: '3-1', swissRank: 3, country: 'KR' },
         { rank: 6, player: '정선우', deck: '황색 덱', score: '3-1', swissRank: 4, country: 'KR' },
@@ -310,10 +310,10 @@ const tournaments = [{
         final: { player1: '김민서', player2: '황상진', winner: '김민서' }
     },
     standings: [
-        { rank: 1, player: '김민서', deck: '녹색 덱', score: '3-0', swissRank: 4, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1968' },
+        { rank: 1, player: '김태경', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR' },
         { rank: 2, player: '황상진', deck: '황색 덱', score: '3-0', swissRank: 2, country: 'KR' },
-        { rank: 3, player: '김태경', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR' },
-        { rank: 4, player: '김지훈', deck: '적색 덱', score: '3-0', swissRank: 3, country: 'KR' },
+        { rank: 3, player: '김지훈', deck: '적색 덱', score: '3-0', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '김민서', deck: '녹색 덱', score: '3-0', swissRank: 4, country: 'KR', deckList: 'https://cookierunbraverse.com/ko/decks/1968' },
         { rank: 5, player: '강병렬', deck: '적색 덱', score: '2-2', swissRank: 5, country: 'KR' },
         { rank: 6, player: '이준희', deck: '자색 덱', score: '2-2', swissRank: 6, country: 'KR' },
         { rank: 7, player: '이가온', deck: '녹색 덱', score: '2-2', swissRank: 7, country: 'KR' },
@@ -485,13 +485,13 @@ const tournaments = [{
         final: { player1: '이주호', player2: '이준희', winner: '이주호' }
     },
     standings: [
-        { rank: 1, player: '이주호', deck: '황색 덱', score: '3-1', swissRank: 4, country: 'KR' },
-        { rank: 2, player: '이준희', deck: '적색 덱', score: '2-2', swissRank: 7, country: 'KR' },
-        { rank: 3, player: '고윤성', deck: '청색 덱', score: '4-0', swissRank: 1, country: 'KR' },
-        { rank: 4, player: '임정섭', deck: '적색 덱', score: '3-1', swissRank: 3, country: 'KR' },
-        { rank: 5, player: '최진욱', deck: '자색 덱', score: '3-1', swissRank: 2, country: 'KR' },
-        { rank: 6, player: '황현우', deck: '녹색 덱', score: '3-1', swissRank: 5, country: 'KR' },
-        { rank: 7, player: '한상원', deck: '청색 덱', score: '2-2', swissRank: 6, country: 'KR' },
+        { rank: 1, player: '고윤성', deck: '청색 덱', score: '4-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '최진욱', deck: '자색 덱', score: '3-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '임정섭', deck: '적색 덱', score: '3-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '이주호', deck: '황색 덱', score: '3-1', swissRank: 4, country: 'KR' },
+        { rank: 5, player: '황현우', deck: '녹색 덱', score: '3-1', swissRank: 5, country: 'KR' },
+        { rank: 6, player: '한상원', deck: '청색 덱', score: '2-2', swissRank: 6, country: 'KR' },
+        { rank: 7, player: '이준희', deck: '적색 덱', score: '2-2', swissRank: 7, country: 'KR' },
         { rank: 8, player: '이명준', deck: '황색 덱', score: '2-2', swissRank: 8, country: 'KR' },
         { rank: 9, player: '임정훈', deck: '황색 덱', score: '2-2', swissRank: 9, country: 'KR' },
         { rank: 10, player: '조승현', deck: '녹색 덱', score: '2-2', swissRank: 10, country: 'KR' },
@@ -512,10 +512,10 @@ const tournaments = [{
         final: { player1: '차주환', player2: '김지민', winner: '차주환' }
     },
     standings: [
-        { rank: 1, player: '차주환', deck: '적색 덱', score: '2-1', swissRank: 4, country: 'KR' },
+        { rank: 1, player: '정기영', deck: '적색 덱', score: '3-0', swissRank: 1, country: 'KR' },
         { rank: 2, player: '김지민', deck: '녹색 덱', score: '2-1', swissRank: 2, country: 'KR' },
-        { rank: 3, player: '정기영', deck: '적색 덱', score: '3-0', swissRank: 1, country: 'KR' },
-        { rank: 4, player: '안현빈', deck: '자색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 3, player: '안현빈', deck: '자색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '차주환', deck: '적색 덱', score: '2-1', swissRank: 4, country: 'KR' },
         { rank: 5, player: '황상철', deck: '청색 덱', score: '1-2', swissRank: 5, country: 'KR' },
         { rank: 6, player: '황지욱', deck: '녹색 덱', score: '1-2', swissRank: 6, country: 'KR' },
         { rank: 7, player: '황선빈', deck: '적색 덱', score: '1-2', swissRank: 7, country: 'KR' }
@@ -543,10 +543,10 @@ const tournaments = [{
         final: { player1: '박현우', player2: '고윤성', winner: '고윤성' }
     },
     standings: [
-        { rank: 1, player: '고윤성', deck: '녹색 덱', score: '2-1', swissRank: 2, country: 'KR' },
-        { rank: 2, player: '박현우', deck: '황색 덱', score: '2-1', swissRank: 4, country: 'KR' },
-        { rank: 3, player: '왕현식', deck: '황색 덱', score: '3-0', swissRank: 1, country: 'KR' },
-        { rank: 4, player: '김태경', deck: '녹색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 1, player: '왕현식', deck: '황색 덱', score: '3-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '고윤성', deck: '녹색 덱', score: '2-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '김태경', deck: '녹색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '박현우', deck: '황색 덱', score: '2-1', swissRank: 4, country: 'KR' },
         { rank: 5, player: '최진욱', deck: '녹색 덱', score: '1-2', swissRank: 5, country: 'KR' },
         { rank: 6, player: '김지훈', deck: '적색 덱', score: '1-2', swissRank: 6, country: 'KR' },
         { rank: 7, player: '임정섭', deck: '적색 덱', score: '1-2', swissRank: 7, country: 'KR' }
