@@ -531,6 +531,26 @@ const tournaments = [{
         { rank: 4, player: '김성범', deck: '황색 덱', score: '1-2', swissRank: 4, country: 'KR' },
         { rank: 5, player: '강병렬', deck: '적색 덱', score: '1-2', swissRank: 5, country: 'KR' }
     ]
+}, {
+    id: 115, name: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-15', status: 'completed', participants: 7, location: '경기 성남',
+    deckDistribution: { '황색 덱': 2, '녹색 덱': 3, '적색 덱': 2 },
+    topCutDistribution: { '황색 덱': 2, '녹색 덱': 2 },
+    bracket: {
+        semifinals: [
+            { player1: '왕현식', player2: '박현우', winner: '박현우' },
+            { player1: '고윤성', player2: '김태경', winner: '고윤성' }
+        ],
+        final: { player1: '박현우', player2: '고윤성', winner: '고윤성' }
+    },
+    standings: [
+        { rank: 1, player: '고윤성', deck: '녹색 덱', score: '2-1', swissRank: 2, country: 'KR' },
+        { rank: 2, player: '박현우', deck: '황색 덱', score: '2-1', swissRank: 4, country: 'KR' },
+        { rank: 3, player: '왕현식', deck: '황색 덱', score: '3-0', swissRank: 1, country: 'KR' },
+        { rank: 4, player: '김태경', deck: '녹색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 5, player: '최진욱', deck: '녹색 덱', score: '1-2', swissRank: 5, country: 'KR' },
+        { rank: 6, player: '김지훈', deck: '적색 덱', score: '1-2', swissRank: 6, country: 'KR' },
+        { rank: 7, player: '임정섭', deck: '적색 덱', score: '1-2', swissRank: 7, country: 'KR' }
+    ]
 }];
 
 const playerDatabase = {
@@ -605,7 +625,8 @@ const playerDatabase = {
     '고윤성': {
         name: '고윤성', country: 'KR', finishes: [
             { tournament: '브레이브 리그 - 서울 마포 롤링다이스', date: '2026-02-01', rank: 1, deck: '녹색 덱' },
-            { tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-08', rank: 1, deck: '녹색 덱' }
+            { tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-08', rank: 1, deck: '녹색 덱' },
+            { tournament: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-15', rank: 1, deck: '녹색 덱' }
         ]
     },
     '이주영': { name: '이주영', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-01', rank: 1, deck: '녹색 덱' }] },
@@ -667,7 +688,7 @@ const braveLeagueTournaments = [
     { id: 112, name: '경기 부천 하비게임몰', date: '2월 14일(토) 14:00', participants: 15 },
     { id: 113, name: '창원 마블보드게임', date: '2월 14일(토) 15:00', participants: 7 },
     { id: 114, name: '서울 역삼 토너먼트센터', date: '2월 14일(토) 15:00', participants: 5 },
-    { id: 115, name: '경기 성남 카드빈', date: '2월 15일(일) 13:00', participants: 0 },
+    { id: 115, name: '경기 성남 카드빈', date: '2월 15일(일) 13:00', participants: 7 },
     { id: 116, name: '부산 부산더락', date: '2월 15일(일) 14:00', participants: 0 },
     { id: 117, name: '서울 마포 롤링다이스', date: '2월 18일(수) 12:00', participants: 0 },
     { id: 118, name: '경기 성남 카드빈', date: '2월 18일(수) 15:00', participants: 0 },
