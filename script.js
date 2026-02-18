@@ -1,9 +1,33 @@
+// --- Configuration ---
+// IMPORTANT: Replace with your actual Supabase project credentials
+const SUPABASE_URL = 'https://royuoafybajfaajhxvvl.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveXVvYWZ5YmFqZmFhamh4dnZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA3MzI2NzYsImV4cCI6MjA4NjMwODY3Nn0.qh8-Ua2Xw9hQApeIBCSRaxgSWebY5QhYZZp3iwqQe_Y';
+
+// Initialize Supabase client
+const supabaseClient = (typeof window.supabase !== 'undefined') ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+
+// --- State ---
+let currentUser = null;
+let isSignUpMode = false;
+
 // --- i18n ---
 let currentLang = localStorage.getItem('pvpkr_lang') || 'ko';
 
 const translations = {
     ko: {
         'nav-tournaments': 'Tournaments',
+        'auth-login': '로그인',
+        'auth-logout': '로그아웃',
+        'auth-login-title': '로그인',
+        'auth-signup-title': '회원가입',
+        'auth-email': '이메일 주소',
+        'auth-password': '비밀번호',
+        'auth-submit-login': '로그인',
+        'auth-submit-signup': '계정 생성',
+        'auth-toggle-signup': '계정이 없으신가요?',
+        'auth-toggle-login': '이미 계정이 있으신가요?',
+        'auth-toggle-btn-signup': '회원가입',
+        'auth-toggle-btn-login': '로그인',
         'section-top-decks': 'Top Decks (BS8~BS9)',
         'section-recent-tournaments': '최근 토너먼트',
         'section-upcoming-tournaments': '다가올 토너먼트',
@@ -57,6 +81,18 @@ const translations = {
     },
     en: {
         'nav-tournaments': 'Tournaments',
+        'auth-login': 'Login',
+        'auth-logout': 'Logout',
+        'auth-login-title': 'Welcome Back',
+        'auth-signup-title': 'Create Account',
+        'auth-email': 'Email Address',
+        'auth-password': 'Password',
+        'auth-submit-login': 'Sign In',
+        'auth-submit-signup': 'Sign Up',
+        'auth-toggle-signup': "Don't have an account?",
+        'auth-toggle-login': 'Already have an account?',
+        'auth-toggle-btn-signup': 'Sign Up',
+        'auth-toggle-btn-login': 'Sign In',
         'section-top-decks': 'Top Decks (BS8~BS9)',
         'section-recent-tournaments': 'Recent Tournaments',
         'section-upcoming-tournaments': 'Upcoming Tournaments',
@@ -129,6 +165,15 @@ function updateStaticTranslations() {
         'section-upcoming-tournaments', 'section-brave-league',
         'footer-contact', 'footer-rights'
     ];
+
+    // Update dynamic auth modal elements if open
+    const modalTitle = document.getElementById('auth-modal-title');
+    if (modalTitle && !modalTitle.closest('.hidden')) {
+        updateAuthModalUI();
+    }
+
+    // Update Header Auth Button
+    updateHeaderAuthUI();
 
     elementsToTranslate.forEach(id => {
         const el = document.getElementById(id);
@@ -563,6 +608,50 @@ const tournaments = [{
         { rank: 6, player: 'Player 6', score: '-', swissRank: '-', country: 'KR' },
         { rank: 7, player: 'Player 7', score: '-', swissRank: '-', country: 'KR' }
     ]
+}, {
+    id: 117, name: '브레이브 리그 - 서울 마포 롤링다이스', date: '2026-02-18', status: 'completed', participants: 10, location: '서울 마포',
+    deckDistribution: { '적색 덱': 4, '청색 덱': 2, '녹색 덱': 2, '황색 덱': 2 },
+    topCutDistribution: { '적색 덱': 2, '청색 덱': 1, '녹색 덱': 1 },
+    bracket: {
+        semifinals: [
+            { player1: '이명준', player2: '이주영', winner: '이주영' },
+            { player1: '윤세호', player2: '장하준', winner: '장하준' }
+        ],
+        final: { player1: '이주영', player2: '장하준', winner: '장하준' }
+    },
+    standings: [
+        { rank: 1, player: '이명준', deck: '적색 덱', score: '4-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '윤세호', deck: '청색 덱', score: '3-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '장하준', deck: '적색 덱', score: '3-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '이주영', deck: '녹색 덱', score: '3-1', swissRank: 4, country: 'KR' },
+        { rank: 5, player: '진수', deck: '적색 덱', score: '2-2', swissRank: 5, country: 'KR' },
+        { rank: 6, player: '김도현', deck: '녹색 덱', score: '2-2', swissRank: 6, country: 'KR' },
+        { rank: 7, player: '이종석', deck: '청색 덱', score: '1-3', swissRank: 7, country: 'KR' },
+        { rank: 8, player: '전시우', deck: '황색 덱', score: '1-3', swissRank: 8, country: 'KR' },
+        { rank: 9, player: '황상진', deck: '황색 덱', score: '1-3', swissRank: 9, country: 'KR' },
+        { rank: 10, player: '임정섭', deck: '적색 덱', score: '0-4', swissRank: 10, country: 'KR' }
+    ]
+}, {
+    id: 118, name: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-18', status: 'completed', participants: 9, location: '경기 성남',
+    deckDistribution: { '녹색 덱': 3, '청색 덱': 2, '황색 덱': 2, '적색 덱': 1 },
+    topCutDistribution: { '녹색 덱': 1, '황색 덱': 2, '청색 덱': 1 },
+    bracket: {
+        semifinals: [
+            { player1: '고윤성', player2: '이희수', winner: '고윤성' },
+            { player1: '이희지', player2: '왕현식', winner: '왕현식' }
+        ],
+        final: { player1: '고윤성', player2: '왕현식', winner: '고윤성' }
+    },
+    standings: [
+        { rank: 1, player: '고윤성', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '이희지', deck: '청색 덱', score: '2-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '왕현식', deck: '황색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '이희수', deck: '황색 덱', score: '2-1', swissRank: 4, country: 'KR' },
+        { rank: 5, player: '이병재', deck: '녹색 덱', score: '2-1', swissRank: 5, country: 'KR' },
+        { rank: 6, player: '김예담', deck: '적색 덱', score: '1-2', swissRank: 6, country: 'KR' },
+        { rank: 7, player: '김수영', deck: '청색 덱', score: '1-2', swissRank: 7, country: 'KR' },
+        { rank: 8, player: '김민서', deck: '녹색 덱', score: '1-2', swissRank: 8, country: 'KR' }
+    ]
 }];
 
 const playerDatabase = {
@@ -629,7 +718,12 @@ const playerDatabase = {
     },
     '이준희': { name: '이준희', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 9, deck: '자색 덱' }] },
     '최다현': { name: '최다현', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 10, deck: '황색 덱' }] },
-    '장하준': { name: '장하준', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 11, deck: '자색 덱' }] },
+    '장하준': {
+        name: '장하준', country: 'KR', finishes: [
+            { tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 11, deck: '자색 덱' },
+            { tournament: '브레이브 리그 - 서울 마포 롤링다이스', date: '2026-02-18', rank: 1, deck: '적색 덱' }
+        ]
+    },
     '오민우': { name: '오민우', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 12, deck: '적색 덱' }] },
     '송경섭': { name: '송경섭', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 14, deck: '적색 덱' }] },
     '박성민': { name: '박성민', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 15, deck: '녹색 덱' }] },
@@ -638,7 +732,8 @@ const playerDatabase = {
         name: '고윤성', country: 'KR', finishes: [
             { tournament: '브레이브 리그 - 서울 마포 롤링다이스', date: '2026-02-01', rank: 1, deck: '녹색 덱' },
             { tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-08', rank: 1, deck: '녹색 덱' },
-            { tournament: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-15', rank: 1, deck: '녹색 덱' }
+            { tournament: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-15', rank: 1, deck: '녹색 덱' },
+            { tournament: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-18', rank: 1, deck: '녹색 덱' }
         ]
     },
     '이주영': { name: '이주영', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-01', rank: 1, deck: '녹색 덱' }] },
@@ -702,8 +797,8 @@ const braveLeagueTournaments = [
     { id: 114, name: '서울 역삼 토너먼트센터', date: '2월 14일(토) 15:00', participants: 5 },
     { id: 115, name: '경기 성남 카드빈', date: '2월 15일(일) 13:00', participants: 7 },
     { id: 116, name: '부산 부산더락', date: '2월 15일(일) 14:00', participants: 7 },
-    { id: 117, name: '서울 마포 롤링다이스', date: '2월 18일(수) 12:00', participants: 0 },
-    { id: 118, name: '경기 성남 카드빈', date: '2월 18일(수) 15:00', participants: 0 },
+    { id: 117, name: '서울 마포 롤링다이스', date: '2월 18일(수) 12:00', participants: 10 },
+    { id: 118, name: '경기 성남 카드빈', date: '2월 18일(수) 15:00', participants: 9 },
     { id: 119, name: '경기 평택 하비베이스', date: '2월 21일(토) 13:00', participants: 0 },
     { id: 120, name: '경기 부천 하비게임몰', date: '2월 21일(토) 14:00', participants: 0 },
     { id: 121, name: '경기 군포 금정배틀시티', date: '2월 21일(토) 15:00', participants: 0 },
@@ -768,6 +863,134 @@ function renderHome() { window.location.hash = ''; }
 // Listen for hash changes
 window.addEventListener('hashchange', handleRouting);
 window.addEventListener('load', handleRouting);
+
+// --- Auth Logic ---
+
+function openAuthModal() {
+    const modal = document.getElementById('auth-modal');
+    modal.classList.remove('hidden');
+    // Reset to Login mode by default
+    isSignUpMode = false;
+    updateAuthModalUI();
+}
+
+function closeAuthModal() {
+    const modal = document.getElementById('auth-modal');
+    modal.classList.add('hidden');
+}
+
+function toggleAuthMode(e) {
+    if (e) e.preventDefault();
+    isSignUpMode = !isSignUpMode;
+    updateAuthModalUI();
+}
+
+function updateAuthModalUI() {
+    const title = document.getElementById('auth-modal-title');
+    const submitBtn = document.getElementById('auth-submit');
+    const toggleText = document.getElementById('auth-toggle-text');
+
+    if (isSignUpMode) {
+        title.innerText = t('auth-signup-title');
+        submitBtn.innerText = t('auth-submit-signup');
+        toggleText.innerHTML = `${t('auth-toggle-login')} <button id="auth-toggle-btn" class="text-purple-400 font-bold hover:underline ml-1">${t('auth-toggle-btn-login')}</button>`;
+    } else {
+        title.innerText = t('auth-login-title');
+        submitBtn.innerText = t('auth-submit-login');
+        toggleText.innerHTML = `${t('auth-toggle-signup')} <button id="auth-toggle-btn" class="text-purple-400 font-bold hover:underline ml-1">${t('auth-toggle-btn-signup')}</button>`;
+    }
+
+    // Re-attach listener
+    document.getElementById('auth-toggle-btn').onclick = toggleAuthMode;
+}
+
+async function handleAuthSubmit(e) {
+    e.preventDefault();
+    if (!supabaseClient) return alert('Supabase not configured');
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorMsg = document.getElementById('auth-error');
+    const submitBtn = document.getElementById('auth-submit');
+
+    submitBtn.disabled = true;
+    errorMsg.classList.add('hidden');
+
+    try {
+        let result;
+        if (isSignUpMode) {
+            result = await supabaseClient.auth.signUp({ email, password });
+            if (result.error) throw result.error;
+            alert('인증 메일이 발송되었습니다. 이메일을 확인해주세요.');
+            closeAuthModal();
+        } else {
+            result = await supabaseClient.auth.signInWithPassword({ email, password });
+            if (result.error) throw result.error;
+            currentUser = result.data.user;
+            updateHeaderAuthUI();
+            closeAuthModal();
+        }
+    } catch (error) {
+        errorMsg.innerText = error.message;
+        errorMsg.classList.remove('hidden');
+    } finally {
+        submitBtn.disabled = false;
+    }
+}
+
+async function handleLogout() {
+    if (!supabaseClient) return;
+    await supabaseClient.auth.signOut();
+    currentUser = null;
+    updateHeaderAuthUI();
+}
+
+function updateHeaderAuthUI() {
+    const container = document.getElementById('auth-container');
+    if (!container) return;
+
+    if (currentUser) {
+        // Show Profile / Logout
+        container.innerHTML = `
+            <div class="flex items-center gap-3">
+                <span class="text-xs font-bold text-purple-200">${currentUser.email.split('@')[0]}</span>
+                <button onclick="handleLogout()" class="px-5 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-full border border-red-500/20 transition-all font-bold text-sm backdrop-blur-sm">
+                    ${t('auth-logout')}
+                </button>
+            </div>
+        `;
+    } else {
+        // Show Login
+        container.innerHTML = `
+            <button onclick="openAuthModal()" class="px-5 py-2 bg-white/5 hover:bg-white/10 text-white rounded-full border border-white/10 transition-all font-bold text-sm backdrop-blur-sm">
+                ${t('auth-login')}
+            </button>
+        `;
+    }
+}
+
+// Check Session on Load
+document.addEventListener('DOMContentLoaded', async () => {
+    if (supabaseClient) {
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        currentUser = session?.user || null;
+        updateHeaderAuthUI();
+
+        // Listen for auth state changes
+        supabaseClient.auth.onAuthStateChange((_event, session) => {
+            currentUser = session?.user || null;
+            updateHeaderAuthUI();
+        });
+    }
+
+    // Attach form listener
+    const form = document.getElementById('auth-form');
+    if (form) form.addEventListener('submit', handleAuthSubmit);
+
+    // Attach toggle listener initial
+    const toggleBtn = document.getElementById('auth-toggle-btn');
+    if (toggleBtn) toggleBtn.onclick = toggleAuthMode;
+});
 
 // --- Utils ---
 const isAnonymousPlayer = (name) => name && name.startsWith('Player ');
