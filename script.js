@@ -633,8 +633,8 @@ const tournaments = [{
     ]
 }, {
     id: 118, name: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-18', status: 'completed', participants: 9, location: '경기 성남',
-    deckDistribution: { '녹색 덱': 3, '청색 덱': 2, '황색 덱': 2, '적색 덱': 1 },
-    topCutDistribution: { '녹색 덱': 1, '황색 덱': 2, '청색 덱': 1 },
+    deckDistribution: { '녹색 덱': 3, '청색 덱': 3, '황색 덱': 1, '적색 덱': 1 },
+    topCutDistribution: { '녹색 덱': 1, '황색 덱': 1, '청색 덱': 2 },
     bracket: {
         semifinals: [
             { player1: '고윤성', player2: '이희수', winner: '고윤성' },
@@ -646,7 +646,7 @@ const tournaments = [{
         { rank: 1, player: '고윤성', deck: '녹색 덱', score: '3-0', swissRank: 1, country: 'KR' },
         { rank: 2, player: '이희지', deck: '청색 덱', score: '2-1', swissRank: 2, country: 'KR' },
         { rank: 3, player: '왕현식', deck: '황색 덱', score: '2-1', swissRank: 3, country: 'KR' },
-        { rank: 4, player: '이희수', deck: '황색 덱', score: '2-1', swissRank: 4, country: 'KR' },
+        { rank: 4, player: '이희수', deck: '청색 덱', score: '2-1', swissRank: 4, country: 'KR' },
         { rank: 5, player: '이병재', deck: '녹색 덱', score: '2-1', swissRank: 5, country: 'KR' },
         { rank: 6, player: '김예담', deck: '적색 덱', score: '1-2', swissRank: 6, country: 'KR' },
         { rank: 7, player: '김수영', deck: '청색 덱', score: '1-2', swissRank: 7, country: 'KR' },
