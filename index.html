@@ -36,6 +36,8 @@
                 </div>
             </div>
             <nav class="hidden md:flex gap-8 items-center font-bold text-[var(--nav-text)]">
+                <a href="index.html#players" target="_blank" id="nav-players"
+                    class="hover:text-purple-400 transition">Players</a>
                 <a href="#tournaments-section" id="nav-tournaments" class="hover:text-purple-400 transition"
                     onclick="if(window.location.hash !== '') { renderHome(); setTimeout(() => document.getElementById('tournaments-section').scrollIntoView({behavior: 'smooth'}), 100); }">Tournaments</a>
 
@@ -72,6 +74,10 @@
             class="flex flex-col md:hidden absolute top-full left-0 w-full bg-[var(--header-bg)] border-b border-[var(--header-border)] backdrop-blur-xl shadow-2xl transition-all duration-300 origin-top transform scale-y-0 opacity-0 pointer-events-none z-40">
             <div class="px-6 py-8 flex flex-col gap-6">
                 <!-- Mobile Navigation Links -->
+                <a href="index.html#players" target="_blank" id="mobile-nav-players"
+                    class="text-white font-bold text-xl hover:text-purple-400 transition" onclick="toggleMobileMenu();">
+                    Players
+                </a>
                 <a href="#tournaments-section" id="mobile-nav-tournaments"
                     class="text-white font-bold text-xl hover:text-purple-400 transition"
                     onclick="toggleMobileMenu(); if(window.location.hash !== '') { renderHome(); setTimeout(() => document.getElementById('tournaments-section').scrollIntoView({behavior: 'smooth'}), 100); }">

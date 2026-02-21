@@ -16,6 +16,8 @@ let currentLang = localStorage.getItem('pvpkr_lang') || 'ko';
 const translations = {
     ko: {
         'nav-tournaments': 'Tournaments',
+        'nav-players': 'Players',
+        'registered-players': '등록된 플레이어 목록',
         'auth-login': '로그인',
         'auth-logout': '로그아웃',
         'auth-login-title': '로그인',
@@ -81,6 +83,8 @@ const translations = {
     },
     en: {
         'nav-tournaments': 'Tournaments',
+        'nav-players': 'Players',
+        'registered-players': 'Registered Players',
         'auth-login': 'Login',
         'auth-logout': 'Logout',
         'auth-login-title': 'Welcome Back',
@@ -161,7 +165,7 @@ function setLanguage(lang) {
 function updateStaticTranslations() {
     // Update simple text elements
     const elementsToTranslate = [
-        'nav-tournaments', 'section-top-decks', 'section-recent-tournaments',
+        'nav-tournaments', 'nav-players', 'mobile-nav-players', 'section-top-decks', 'section-recent-tournaments',
         'section-upcoming-tournaments', 'section-brave-league',
         'footer-contact', 'footer-rights'
     ];
@@ -934,6 +938,8 @@ function handleRouting() {
     } else if (hash.startsWith('#player/')) {
         const playerName = decodeURIComponent(hash.replace('#player/', ''));
         renderPlayerDetails(playerName);
+    } else if (hash === '#players') {
+        renderPlayersDirectory();
     } else if (hash === '#upcoming') {
         renderAllUpcomingView();
     } else if (hash === '#brave-league') {
@@ -1775,6 +1781,49 @@ function renderAllBraveLeagueView() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function renderPlayersDirectory() {
+    const mainView = document.getElementById('main-view');
+    const detailView = document.getElementById('detail-view');
+
+    if (mainView && detailView) {
+        mainView.classList.add('hidden');
+        detailView.classList.remove('hidden');
+    }
+
+    const sortedPlayers = Object.values(playerDatabase)
+        .filter(p => !isAnonymousPlayer(p.name))
+        .sort((a, b) => a.name.localeCompare(b.name, 'ko-KR'));
+
+    let html = `
+        <button onclick="window.history.back()" class="mb-10 flex items-center gap-2 text-purple-400 font-extrabold hover:text-purple-300 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> ${t('go-back') || 'Go Back'}
+        </button>
+
+        <div class="flex items-center gap-3 mb-10">
+            <div class="w-2 h-8 bg-purple-600 rounded-full"></div>
+            <h2 class="text-4xl font-black text-white tracking-tight">${t('registered-players') || 'Registered Players'}</h2>
+        </div>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+    `;
+
+    sortedPlayers.forEach(p => {
+        html += `
+            <div onclick="showPlayerDetails('${p.name}')" class="glass-card p-6 flex flex-col items-center justify-center cursor-pointer group hover:border-purple-500/50 hover:bg-white/5 transition-all">
+                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-[var(--card-border)] mb-4 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <img src="assets/images/cookie  icon.webp" alt="Profile" class="w-14 h-14 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+                <h3 class="text-lg font-black text-white group-hover:text-purple-400 transition-colors text-center">${p.name}</h3>
+                <p class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mt-2 font-bold">${p.finishes.length} ${t('competitions') || 'Finishes'}</p>
+            </div>
+        `;
+    });
+
+    html += `</div>`;
+
+    if (detailView) detailView.innerHTML = html;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 function renderPlayerDetails(playerName) {
     const player = playerDatabase[playerName];
