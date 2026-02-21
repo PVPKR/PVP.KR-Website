@@ -706,7 +706,7 @@ const tournaments = [{
         { rank: 8, player: '황현우', deck: '녹색 덱', score: '0-3', swissRank: 8, country: 'KR' }
     ]
 }, {
-    id: 123, name: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-21', status: 'completed', participants: 7, location: '경남 창원',
+    id: 122, name: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-21', status: 'completed', participants: 7, location: '경남 창원',
     deckDistribution: { '청색 덱': 2, '적색 덱': 3, '자색 덱': 1, '녹색 덱': 1 },
     topCutDistribution: { '청색 덱': 2, '적색 덱': 2 },
     bracket: {
@@ -886,7 +886,7 @@ const braveLeagueTournaments = [
     { id: 119, name: '경기 평택 하비베이스', date: '2월 21일(토) 13:00', participants: 4 },
     { id: 120, name: '경기 부천 하비게임몰', date: '2월 21일(토) 14:00', participants: 8 },
     { id: 121, name: '경기 군포 금정배틀시티', date: '2월 21일(토) 15:00', participants: 10 },
-    { id: 123, name: '창원 마블보드게임', date: '2월 21일(토) 15:00', participants: 7 },
+    { id: 122, name: '창원 마블보드게임', date: '2월 21일(토) 15:00', participants: 7 },
     { id: 124, name: '서울 구로 어바웃티씨지', date: '2월 22일(일) 15:00', participants: 0 },
     { id: 125, name: '경기 성남 카드빈', date: '2월 28일(토) 13:00', participants: 0 },
     { id: 126, name: '경기 군포 금정배틀시티', date: '2월 28일(토) 15:00', participants: 0 }
