@@ -705,6 +705,26 @@ const tournaments = [{
         { rank: 7, player: '심건우', deck: '녹색 덱', score: '1-2', swissRank: 7, country: 'KR' },
         { rank: 8, player: '황현우', deck: '녹색 덱', score: '0-3', swissRank: 8, country: 'KR' }
     ]
+}, {
+    id: 123, name: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-21', status: 'completed', participants: 7, location: '경남 창원',
+    deckDistribution: { '청색 덱': 2, '적색 덱': 3, '자색 덱': 1, '녹색 덱': 1 },
+    topCutDistribution: { '청색 덱': 2, '적색 덱': 2 },
+    bracket: {
+        semifinals: [
+            { player1: '순대', player2: '송윤태', winner: '순대' },
+            { player1: '박태균', player2: '정기영', winner: '박태균' }
+        ],
+        final: { player1: '순대', player2: '박태균', winner: '순대' }
+    },
+    standings: [
+        { rank: 1, player: '순대', deck: '청색 덱', score: '3-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '박태균', deck: '청색 덱', score: '2-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '정기영', deck: '적색 덱', score: '2-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '송윤태', deck: '적색 덱', score: '2-1', swissRank: 4, country: 'KR' },
+        { rank: 5, player: '권솔', deck: '자색 덱', score: '1-2', swissRank: 5, country: 'KR' },
+        { rank: 6, player: '김동환', deck: '적색 덱', score: '1-2', swissRank: 6, country: 'KR' },
+        { rank: 7, player: '김지민', deck: '녹색 덱', score: '1-2', swissRank: 7, country: 'KR' }
+    ]
 }];
 
 const playerDatabase = {
@@ -831,7 +851,11 @@ const playerDatabase = {
     },
     '윤영진': { name: '윤영진', country: 'KR', finishes: [] },
     '김지민': { name: '김지민', country: 'KR', finishes: [] },
-    '순대': { name: '순대', country: 'KR', finishes: [] },
+    '순대': {
+        name: '순대', country: 'KR', finishes: [
+            { tournament: '브레이브 리그 - 창원 마블보드게임', date: '2026-02-21', rank: 1, deck: '청색 덱' }
+        ]
+    },
     '안현빈': { name: '안현빈', country: 'KR', finishes: [] }
 };
 
@@ -862,7 +886,7 @@ const braveLeagueTournaments = [
     { id: 119, name: '경기 평택 하비베이스', date: '2월 21일(토) 13:00', participants: 4 },
     { id: 120, name: '경기 부천 하비게임몰', date: '2월 21일(토) 14:00', participants: 8 },
     { id: 121, name: '경기 군포 금정배틀시티', date: '2월 21일(토) 15:00', participants: 10 },
-    { id: 123, name: '창원 마블보드게임', date: '2월 21일(토) 15:00', participants: 0 },
+    { id: 123, name: '창원 마블보드게임', date: '2월 21일(토) 15:00', participants: 7 },
     { id: 124, name: '서울 구로 어바웃티씨지', date: '2월 22일(일) 15:00', participants: 0 },
     { id: 125, name: '경기 성남 카드빈', date: '2월 28일(토) 13:00', participants: 0 },
     { id: 126, name: '경기 군포 금정배틀시티', date: '2월 28일(토) 15:00', participants: 0 }
