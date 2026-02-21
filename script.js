@@ -161,7 +161,7 @@ function setLanguage(lang) {
 function updateStaticTranslations() {
     // Update simple text elements
     const elementsToTranslate = [
-        'nav-tournaments', 'section-top-decks', 'section-recent-tournaments',
+        'nav-tournaments', 'mobile-nav-tournaments', 'section-top-decks', 'section-recent-tournaments',
         'section-upcoming-tournaments', 'section-brave-league',
         'footer-contact', 'footer-rights'
     ];
@@ -196,13 +196,19 @@ function updateStaticTranslations() {
     // Update UI highlights for language switcher
     const koBtn = document.getElementById('lang-ko');
     const enBtn = document.getElementById('lang-en');
+    const mobileKoBtn = document.getElementById('mobile-lang-ko');
+    const mobileEnBtn = document.getElementById('mobile-lang-en');
 
     if (currentLang === 'ko') {
-        koBtn.classList.remove('opacity-40');
-        enBtn.classList.add('opacity-40');
+        if (koBtn) koBtn.classList.remove('opacity-40');
+        if (enBtn) enBtn.classList.add('opacity-40');
+        if (mobileKoBtn) mobileKoBtn.classList.remove('opacity-40');
+        if (mobileEnBtn) mobileEnBtn.classList.add('opacity-40');
     } else {
-        koBtn.classList.add('opacity-40');
-        enBtn.classList.remove('opacity-40');
+        if (koBtn) koBtn.classList.add('opacity-40');
+        if (enBtn) enBtn.classList.remove('opacity-40');
+        if (mobileKoBtn) mobileKoBtn.classList.add('opacity-40');
+        if (mobileEnBtn) mobileEnBtn.classList.remove('opacity-40');
     }
 }
 
@@ -1031,25 +1037,60 @@ async function handleLogout() {
 
 function updateHeaderAuthUI() {
     const container = document.getElementById('auth-container');
-    if (!container) return;
+    const mobileContainer = document.getElementById('mobile-auth-container');
 
-    if (currentUser) {
-        // Show Profile / Logout
-        container.innerHTML = `
-            <div class="flex items-center gap-3">
-                <span class="text-xs font-bold text-purple-200">${currentUser.email.split('@')[0]}</span>
-                <button onclick="handleLogout()" class="px-5 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-full border border-red-500/20 transition-all font-bold text-sm backdrop-blur-sm">
-                    ${t('auth-logout')}
+    if (container) {
+        if (currentUser) {
+            container.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-bold text-purple-200">${currentUser.email.split('@')[0]}</span>
+                    <button onclick="handleLogout()" class="px-5 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-full border border-red-500/20 transition-all font-bold text-sm backdrop-blur-sm">
+                        ${t('auth-logout')}
+                    </button>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <button onclick="openAuthModal()" class="px-5 py-2 bg-white/5 hover:bg-white/10 text-white rounded-full border border-white/10 transition-all font-bold text-sm backdrop-blur-sm">
+                    ${t('auth-login')}
                 </button>
-            </div>
-        `;
+            `;
+        }
+    }
+
+    if (mobileContainer) {
+        if (currentUser) {
+            mobileContainer.innerHTML = `
+                <div class="flex flex-col items-center gap-4">
+                    <span class="text-sm font-bold text-purple-200">${currentUser.email}</span>
+                    <button onclick="toggleMobileMenu(); handleLogout()" class="w-full px-5 py-3 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-xl border border-red-500/20 transition-all font-bold text-lg backdrop-blur-sm text-center">
+                        ${t('auth-logout')}
+                    </button>
+                </div>
+            `;
+        } else {
+            mobileContainer.innerHTML = `
+                <button onclick="toggleMobileMenu(); openAuthModal()" class="w-full px-5 py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 transition-all font-bold text-lg backdrop-blur-sm text-center">
+                    ${t('auth-login')}
+                </button>
+            `;
+        }
+    }
+}
+
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    if (!menu) return;
+
+    if (menu.classList.contains('opacity-0')) {
+        menu.classList.remove('opacity-0', 'scale-y-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'scale-y-100', 'pointer-events-auto');
+        if (toggleBtn) toggleBtn.classList.add('text-purple-400');
     } else {
-        // Show Login
-        container.innerHTML = `
-            <button onclick="openAuthModal()" class="px-5 py-2 bg-white/5 hover:bg-white/10 text-white rounded-full border border-white/10 transition-all font-bold text-sm backdrop-blur-sm">
-                ${t('auth-login')}
-            </button>
-        `;
+        menu.classList.remove('opacity-100', 'scale-y-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'scale-y-0', 'pointer-events-none');
+        if (toggleBtn) toggleBtn.classList.remove('text-purple-400');
     }
 }
 
