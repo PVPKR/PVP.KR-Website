@@ -1799,27 +1799,33 @@ function renderPlayersDirectory() {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> ${t('go-back') || 'Go Back'}
         </button>
 
-        <div class="flex items-center gap-3 mb-10">
+        <div class="flex items-center gap-3 mb-6">
             <div class="w-2 h-8 bg-purple-600 rounded-full"></div>
             <h2 class="text-4xl font-black text-white tracking-tight">${t('registered-players') || 'Registered Players'}</h2>
         </div>
         
-        <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+        <div class="text-[var(--text-muted)] font-bold mb-8 pl-4 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            액티브 플레이어: <span class="text-white font-black">${sortedPlayers.length}</span>명
+        </div>
+        
+        <div class="glass-card overflow-hidden">
+            <div class="divide-y border-[var(--card-border)]">
     `;
 
     sortedPlayers.forEach(p => {
         html += `
-            <div onclick="showPlayerDetails('${p.name}')" class="glass-card p-6 flex flex-col items-center justify-center cursor-pointer group hover:border-purple-500/50 hover:bg-white/5 transition-all">
-                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-[var(--card-border)] mb-4 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                    <img src="assets/images/cookie  icon.webp" alt="Profile" class="w-14 h-14 object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                <div onclick="showPlayerDetails('${p.name}')" class="flex flex-row items-center justify-between px-6 py-5 cursor-pointer group hover:bg-white/5 transition-all">
+                    <h3 class="text-xl font-black text-[var(--text-heading)] group-hover:text-purple-400 transition-colors">${p.name}</h3>
+                    <p class="text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold">${p.finishes.length} ${t('competitions') || 'Finishes'}</p>
                 </div>
-                <h3 class="text-lg font-black text-white group-hover:text-purple-400 transition-colors text-center">${p.name}</h3>
-                <p class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mt-2 font-bold">${p.finishes.length} ${t('competitions') || 'Finishes'}</p>
-            </div>
         `;
     });
 
-    html += `</div>`;
+    html += `
+            </div>
+        </div>
+    `;
 
     if (detailView) detailView.innerHTML = html;
     window.scrollTo({ top: 0, behavior: 'smooth' });
