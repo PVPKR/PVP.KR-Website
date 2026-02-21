@@ -161,7 +161,7 @@ function setLanguage(lang) {
 function updateStaticTranslations() {
     // Update simple text elements
     const elementsToTranslate = [
-        'nav-tournaments', 'mobile-nav-tournaments', 'section-top-decks', 'section-recent-tournaments',
+        'nav-tournaments', 'section-top-decks', 'section-recent-tournaments',
         'section-upcoming-tournaments', 'section-brave-league',
         'footer-contact', 'footer-rights'
     ];
@@ -179,6 +179,9 @@ function updateStaticTranslations() {
         const el = document.getElementById(id);
         if (el) el.innerText = t(id);
     });
+
+    const mobileNavTournaments = document.getElementById('mobile-nav-tournaments');
+    if (mobileNavTournaments) mobileNavTournaments.innerText = t('nav-tournaments');
 
     // Update document metadata
     document.title = t('site-title');
