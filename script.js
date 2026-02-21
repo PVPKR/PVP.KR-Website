@@ -17,7 +17,9 @@ const translations = {
     ko: {
         'nav-tournaments': 'Tournaments',
         'nav-players': 'Players',
+        'nav-stores': 'Stores (Beta)',
         'registered-players': '등록된 플레이어 목록',
+        'active-players': '액티브 플레이어',
         'auth-login': '로그인',
         'auth-logout': '로그아웃',
         'auth-login-title': '로그인',
@@ -84,7 +86,9 @@ const translations = {
     en: {
         'nav-tournaments': 'Tournaments',
         'nav-players': 'Players',
+        'nav-stores': 'Stores (Beta)',
         'registered-players': 'Registered Players',
+        'active-players': 'Active Players',
         'auth-login': 'Login',
         'auth-logout': 'Logout',
         'auth-login-title': 'Welcome Back',
@@ -151,6 +155,54 @@ const translations = {
     }
 };
 
+const properNounsEn = {
+    '전시우': 'Si-Woo Jeon', '김민서': 'Min-Seo Kim', '류지현': 'Ji-Hyun Ryu', '김영진': 'Young-Jin Kim', '황정빈': 'Jung-Bin Hwang', '김지훈': 'Ji-Hoon Kim',
+    '이충현': 'Choong-Hyun Lee', '정기영': 'Ki-Young Jung', '강병렬': 'Byung-Ryul Kang', '이창민': 'Chang-Min Lee', '이희지': 'Hee-Ji Lee', '임정훈': 'Jung-Hoon Lim',
+    '이주호': 'Joo-Ho Lee', '이태연': 'Tae-Yeon Lee', '박창남': 'Chang-Nam Park', '이혁준': 'Hyuk-Joon Lee', '황현우': 'Hyun-Woo Hwang', '이태석': 'Tae-Seok Lee',
+    '김세진': 'Se-Jin Kim', '고윤성': 'Yoon-Sung Ko', '이현수': 'Hyun-Soo Lee', '윤세호': 'Se-Ho Yoon', '이주영': 'Joo-Young Lee', '이준희': 'Joon-Hee Lee',
+    '김정기': 'Jung-Ki Kim', '장진영': 'Jin-Young Jang', '장세현': 'Se-Hyun Jang', '임정섭': 'Jung-Seop Lim', '정선우': 'Sun-Woo Jung', '김선규': 'Sun-Kyu Kim',
+    '소재현': 'Jae-Hyun So', '박현우': 'Hyun-Woo Park', '오민우': 'Min-Woo Oh', '이형로': 'Hyung-Ro Lee', '이가온': 'Ga-On Lee', '박상진': 'Sang-Jin Park',
+    '이창섭': 'Chang-Seop Lee', '장성용': 'Sung-Yong Jang', '허승주': 'Seung-Joo Heo', '송윤태': 'Yoon-Tae Song', '최다현': 'Da-Hyun Choi', '장하준': 'Ha-Joon Jang',
+    '송경섭': 'Kyung-Seop Song', '박성민': 'Sung-Min Park', '신재용': 'Jae-Yong Shin', '심건우': 'Gun-Woo Shim', '손영균': 'Young-Kyun Son', '김태경': 'Tae-Kyung Kim',
+    '이정훈': 'Jung-Hoon Lee', '황상진': 'Sang-Jin Hwang', '김도현': 'Do-Hyun Kim', '최준하': 'Joon-Ha Choi', '이명준': 'Myung-Joon Lee', '김광진': 'Kwang-Jin Kim',
+    '안민섭': 'Min-Seop Ahn', '이재웅': 'Jae-Woong Lee', '주강은': 'Kang-Eun Joo', '박진영': 'Jin-Young Park', '안성민': 'Sung-Min Ahn', '오승훈': 'Seung-Hoon Oh',
+    '박태균': 'Tae-Kyun Park', '차주환': 'Joo-Hwan Cha', '김지민': 'Ji-Min Kim', '김동환': 'Dong-Hwan Kim', '윤영진': 'Young-Jin Yoon', '순대': 'Soon-Dae',
+    '안현빈': 'Hyun-Bin Ahn', '최진욱': 'Jin-Wook Choi', '진수': 'Jin-Soo', '김종민': 'Jong-Min Kim', '한상원': 'Sang-Won Han', '왕현식': 'Hyun-Sik Wang',
+    '조승현': 'Seung-Hyun Cho', '조아론': 'Aaron Cho', '정지원': 'Ji-Won Jung', '황상철': 'Sang-Chul Hwang', '황지욱': 'Ji-Wook Hwang', '황선빈': 'Sun-Bin Hwang',
+    '김성범': 'Sung-Bum Kim', '이종석': 'Jong-Seok Lee', '이희수': 'Hee-Soo Lee', '이병재': 'Byung-Jae Lee', '김예담': 'Ye-Dam Kim', '김수영': 'Soo-Young Kim',
+    '한용희': 'Yong-Hee Han', '권솔': 'Sol Kwon', 'Player 1': 'Player 1', 'Player 2': 'Player 2', 'Player 3': 'Player 3', 'Player 4': 'Player 4', 'Player 5': 'Player 5', 'Player 6': 'Player 6', 'Player 7': 'Player 7', 'Player 8': 'Player 8', 'Player 9': 'Player 9', 'Player 10': 'Player 10',
+
+    '브레이브 리그 - 서울 마포 롤링다이스': 'Brave League - Rolling Dice, Mapo, Seoul',
+    '브레이브 리그 - 서울 구로 어바웃티씨지': 'Brave League - About TCG, Guro, Seoul',
+    '브레이브 리그 - 서울 역삼 토너먼트센터': 'Brave League - Tournament Center, Yeoksam, Seoul',
+    '브레이브 리그 - 경기 부천 하비게임몰': 'Brave League - Hobby Game Mall, Bucheon, Gyeonggi-do',
+    '브레이브 리그 - 부산 포춘팩토리': 'Brave League - Fortune Factory, Busan',
+    '브레이브 리그 - 부산 부산더락': 'Brave League - Busan The Rock, Busan',
+    '브레이브 리그 - 창원 마블보드게임': 'Brave League - Marble Boardgame, Changwon',
+    '브레이브 리그 - 경기 평택 하비베이스': 'Brave League - Hobby Base, Pyeongtaek, Gyeonggi-do',
+    '브레이브 리그 - 경기 성남 카드빈': 'Brave League - Cardbin, Seongnam, Gyeonggi-do',
+    '브레이브 리그 - 경기 군포 금정배틀시티': 'Brave League - Geumjeong Battle City, Gunpo, Gyeonggi-do',
+
+    // Store names without prefixes
+    '서울 마포 롤링다이스': 'Rolling Dice, Mapo, Seoul',
+    '서울 구로 어바웃티씨지': 'About TCG, Guro, Seoul',
+    '서울 역삼 토너먼트센터': 'Tournament Center, Yeoksam, Seoul',
+    '경기 부천 하비게임몰': 'Hobby Game Mall, Bucheon, Gyeonggi-do',
+    '부산 포춘팩토리': 'Fortune Factory, Busan',
+    '부산 부산더락': 'Busan The Rock, Busan',
+    '창원 마블보드게임': 'Marble Boardgame, Changwon',
+    '경기 평택 하비베이스': 'Hobby Base, Pyeongtaek, Gyeonggi-do',
+    '경기 성남 카드빈': 'Cardbin, Seongnam, Gyeonggi-do',
+    '경기 군포 금정배틀시티': 'Geumjeong Battle City, Gunpo, Gyeonggi-do'
+};
+
+function t_name(koName) {
+    if (currentLang === 'en' && properNounsEn[koName]) {
+        return properNounsEn[koName];
+    }
+    return koName;
+}
+
 function t(key) {
     return translations[currentLang][key] || key;
 }
@@ -165,7 +217,7 @@ function setLanguage(lang) {
 function updateStaticTranslations() {
     // Update simple text elements
     const elementsToTranslate = [
-        'nav-tournaments', 'nav-players', 'mobile-nav-players', 'section-top-decks', 'section-recent-tournaments',
+        'nav-tournaments', 'nav-players', 'nav-stores', 'section-top-decks', 'section-recent-tournaments',
         'section-upcoming-tournaments', 'section-brave-league',
         'footer-contact', 'footer-rights'
     ];
@@ -186,6 +238,12 @@ function updateStaticTranslations() {
 
     const mobileNavTournaments = document.getElementById('mobile-nav-tournaments');
     if (mobileNavTournaments) mobileNavTournaments.innerText = t('nav-tournaments');
+
+    const mobileNavPlayers = document.getElementById('mobile-nav-players');
+    if (mobileNavPlayers) mobileNavPlayers.innerText = t('nav-players');
+
+    const mobileNavStores = document.getElementById('mobile-nav-stores');
+    if (mobileNavStores) mobileNavStores.innerText = t('nav-stores');
 
     // Update document metadata
     document.title = t('site-title');
@@ -940,6 +998,8 @@ function handleRouting() {
         renderPlayerDetails(playerName);
     } else if (hash === '#players') {
         renderPlayersDirectory();
+    } else if (hash === '#stores') {
+        renderStoresDirectory();
     } else if (hash === '#upcoming') {
         renderAllUpcomingView();
     } else if (hash === '#brave-league') {
@@ -1263,7 +1323,7 @@ function renderHomeView() {
             <div class="flex items-center gap-5">
                 <div class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-2xl group-hover:bg-purple-500/20 transition">🏆</div>
                 <div>
-                    <h3 class="font-bold text-[var(--text-heading)] text-lg">${currentLang === 'en' ? (tour.nameEn || tour.name) : tour.name}</h3>
+                    <h3 class="font-bold text-[var(--text-heading)] text-lg">${currentLang === 'en' ? (tour.nameEn || t_name(tour.name)) : t_name(tour.name)}</h3>
                     <div class="flex gap-4 text-sm text-[var(--text-muted)] mt-1">
                         <span class="flex items-center gap-1">📅 ${tour.date}</span>
                         <span class="flex items-center gap-1">📍 ${getTranslatedLocation(tour.location)}</span>
@@ -1296,7 +1356,7 @@ function renderHomeView() {
             <div onclick="showTournamentDetails(${tour.id})" class="glass-card p-4 border-l-4 border-green-500 cursor-pointer hover:bg-green-500/10 transition group">
                 <div class="flex justify-between items-start">
                     <div>
-                        <h3 class="font-bold text-[var(--text-heading)] group-hover:text-green-400 transition">${getTranslatedLocation(tour.shortName || tour.name.replace('브레이브 리그 - ', ''))}</h3>
+                        <h3 class="font-bold text-[var(--text-heading)] group-hover:text-green-400 transition">${t_name(tour.name).replace('브레이브 리그 - ', '').replace('Brave League - ', '')}</h3>
                         <div class="text-xs text-[var(--text-muted)] mt-2">
                             <span>📅 ${tour.date}</span>
                         </div>
@@ -1378,7 +1438,7 @@ function renderTournamentDetails(id) {
             <div class="flex items-start justify-between">
                 <div>
                     <div class="flex items-center gap-2 mb-2">
-                        <h1 class="text-4xl font-black text-[var(--text-heading)]">${currentLang === 'en' ? (tournament.nameEn || tournament.name) : tournament.name}</h1>
+                        <h1 class="text-4xl font-black text-[var(--text-heading)]">${currentLang === 'en' ? (tournament.nameEn || t_name(tournament.name)) : t_name(tournament.name)}</h1>
                         ${tournament.externalURL ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600 group-hover:text-purple-400 transition"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>' : ''}
                     </div>
                     <div class="flex flex-wrap gap-6 text-slate-400 font-medium">
@@ -1420,8 +1480,8 @@ function renderTournamentDetails(id) {
                                         <div class="col-span-4 flex items-center gap-3">
                                             <img src="https://flagcdn.com/kr.svg" alt="KR" class="w-6 h-4 shadow-sm rounded-sm object-cover">
                                             ${isAnonymousPlayer(s.player)
-            ? `<span class="font-extrabold text-[var(--text-main)]">${s.player}</span>`
-            : `<span class="font-extrabold text-[var(--text-main)] cursor-pointer hover:text-purple-500 transition" onclick="showPlayerDetails('${s.player}')">${s.player}</span>`
+            ? `<span class="font-extrabold text-[var(--text-main)]">${t_name(s.player)}</span>`
+            : `<span class="font-extrabold text-[var(--text-main)] cursor-pointer hover:text-purple-500 transition" onclick="showPlayerDetails('${s.player}')">${t_name(s.player)}</span>`
         }
                                         </div>
                                         <div class="col-span-3 text-center">
@@ -1476,13 +1536,13 @@ function renderTournamentDetails(id) {
                                                 <div class="flex flex-col divide-y divide-white/5">
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player1 ? 'bg-purple-500/20' : ''}">
                                                         <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">
-                                                            <span class="mr-1">${getBracketEmoji(match.player1)}</span>${match.player1}
+                                                            <span class="mr-1">${getBracketEmoji(match.player1)}</span>${t_name(match.player1)}
                                                         </span>
                                                         ${match.winner === match.player1 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player2 ? 'bg-purple-500/20' : ''}">
                                                         <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'}">
-                                                            <span class="mr-1">${getBracketEmoji(match.player2)}</span>${match.player2}
+                                                            <span class="mr-1">${getBracketEmoji(match.player2)}</span>${t_name(match.player2)}
                                                         </span>
                                                         ${match.winner === match.player2 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
@@ -1505,13 +1565,13 @@ function renderTournamentDetails(id) {
                                                 <div class="flex flex-col divide-y divide-white/5">
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player1 ? 'bg-purple-500/20' : ''}">
                                                         <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">
-                                                            <span class="mr-1">${getBracketEmoji(match.player1)}</span>${match.player1}
+                                                            <span class="mr-1">${getBracketEmoji(match.player1)}</span>${t_name(match.player1)}
                                                         </span>
                                                         ${match.winner === match.player1 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player2 ? 'bg-purple-500/20' : ''}">
                                                         <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'}">
-                                                            <span class="mr-1">${getBracketEmoji(match.player2)}</span>${match.player2}
+                                                            <span class="mr-1">${getBracketEmoji(match.player2)}</span>${t_name(match.player2)}
                                                         </span>
                                                         ${match.winner === match.player2 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
@@ -1535,13 +1595,13 @@ function renderTournamentDetails(id) {
                                             <div class="flex flex-col divide-y divide-white/5">
                                                 <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'bg-yellow-500/20' : ''}">
                                                     <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'text-white' : 'text-slate-400'}">
-                                                        <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player1)}</span>${tournament.bracket.final.player1}
+                                                        <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player1)}</span>${t_name(tournament.bracket.final.player1)}
                                                     </span>
                                                     ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
                                                 </div>
                                                 <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'bg-yellow-500/20' : ''}">
                                                     <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'text-white' : 'text-slate-400'}">
-                                                        <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player2)}</span>${tournament.bracket.final.player2}
+                                                        <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player2)}</span>${t_name(tournament.bracket.final.player2)}
                                                     </span>
                                                     ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
                                                 </div>
@@ -1597,7 +1657,7 @@ function renderAllUpcomingView() {
                 <div class="glass-card p-6 flex flex-col justify-between hover:scale-[1.02] transition-transform border border-white/5">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-yellow-900/30 flex items-center justify-center text-2xl mb-4">🗓</div>
-                        <h3 class="font-extrabold text-xl text-slate-100 mb-2">${currentLang === 'en' ? (tour.nameEn || tour.name) : tour.name}</h3>
+                        <h3 class="font-extrabold text-xl text-slate-100 mb-2">${currentLang === 'en' ? (tour.nameEn || t_name(tour.name)) : t_name(tour.name)}</h3>
                         <p class="text-sm font-semibold text-orange-400">${currentLang === 'en' ? (tour.dateEn || tour.date) : tour.date}</p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-white/5">
@@ -1754,7 +1814,7 @@ function renderAllBraveLeagueView() {
             return `
                             <div onclick="showTournamentDetails(${tour.id})" class="glass-card p-5 border-l-4 ${isDone ? 'border-purple-500 bg-purple-500/5' : 'border-green-500'} hover:bg-green-500/10 transition cursor-pointer group">
                                 <div class="flex justify-between items-start mb-2">
-                                    <h3 class="font-bold text-[var(--text-heading)] text-sm leading-tight group-hover:text-green-400 transition">${getTranslatedLocation(tour.name)}</h3>
+                                    <h3 class="font-bold text-[var(--text-heading)] text-sm leading-tight group-hover:text-green-400 transition">${t_name(tour.name)}</h3>
                                     ${isDone ? `<span class="text-[10px] font-black bg-purple-500 text-white px-2 py-0.5 rounded-full uppercase">${t('completed')}</span>` : ''}
                                 </div>
                                 <div class="space-y-1">
@@ -1766,7 +1826,7 @@ function renderAllBraveLeagueView() {
                                             👥 ${t('participants')}: ${pCount || '-'}
                                         </div>
                                         <div class="text-[10px] font-black text-yellow-500 flex items-center gap-1">
-                                            👑 1st: ${winnerName}
+                                            👑 1st: ${t_name(winnerName)}
                                         </div>
                                     ` : ''}
                                 </div>
@@ -1803,10 +1863,10 @@ function renderPlayersDirectory() {
             <div class="w-2 h-8 bg-purple-600 rounded-full"></div>
             <h2 class="text-4xl font-black text-white tracking-tight">${t('registered-players') || 'Registered Players'}</h2>
         </div>
-        
+
         <div class="text-[var(--text-muted)] font-bold mb-8 pl-4 flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            액티브 플레이어: <span class="text-white font-black">${sortedPlayers.length}</span>명
+            ${t('active-players')}: <span class="text-white font-black">${sortedPlayers.length}</span>명
         </div>
         
         <div class="glass-card overflow-hidden">
@@ -1816,7 +1876,7 @@ function renderPlayersDirectory() {
     sortedPlayers.forEach(p => {
         html += `
                 <div onclick="showPlayerDetails('${p.name}')" class="flex flex-row items-center justify-between px-6 py-5 cursor-pointer group hover:bg-white/5 transition-all">
-                    <h3 class="text-xl font-black text-[var(--text-heading)] group-hover:text-purple-400 transition-colors">${p.name}</h3>
+                    <h3 class="text-xl font-black text-[var(--text-heading)] group-hover:text-purple-400 transition-colors">${t_name(p.name)}</h3>
                     <p class="text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold">${p.finishes.length} ${t('competitions') || 'Finishes'}</p>
                 </div>
         `;
@@ -1828,6 +1888,36 @@ function renderPlayersDirectory() {
     `;
 
     if (detailView) detailView.innerHTML = html;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderStoresDirectory() {
+    const mainView = document.getElementById('main-view');
+    const detailView = document.getElementById('detail-view');
+
+    if (mainView && detailView) {
+        mainView.classList.add('hidden');
+        detailView.classList.remove('hidden');
+    }
+
+    const html = `
+        <button onclick="window.history.back()" class="mb-10 flex items-center gap-2 text-purple-400 font-extrabold hover:text-purple-300 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> ${t('go-back') || 'Go Back'}
+        </button>
+
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-2 h-8 bg-purple-600 rounded-full"></div>
+            <h2 class="text-4xl font-black text-white tracking-tight">${t('nav-stores') || 'Stores (Beta)'}</h2>
+        </div>
+
+        <!-- Regional Analytics Map Container -->
+        <div id="players-map-container" class="mb-12">
+            <!-- Map injected here after render -->
+        </div>
+    `;
+
+    if (detailView) detailView.innerHTML = html;
+    renderStoreMap();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1856,7 +1946,7 @@ function renderPlayerDetails(playerName) {
                 </div>
                 <div>
                     <div class="flex items-center gap-3">
-                        <h1 class="text-5xl font-black text-[var(--text-heading)]">${player.name}</h1>
+                        <h1 class="text-5xl font-black text-[var(--text-heading)]">${t_name(player.name)}</h1>
                         <img src="https://flagcdn.com/kr.svg" alt="KR" class="w-10 h-7 shadow-lg rounded-md border border-[var(--card-border)]">
                     </div>
                     <p class="text-[var(--text-muted)] font-bold mt-2 text-lg">South Korea • ${t('competitive-player')}</p>
@@ -1879,15 +1969,17 @@ function renderPlayerDetails(playerName) {
                 </div>
                 <div class="divide-y border-[var(--card-border)]">
                     ${player.finishes.map(f => {
-        const tour = tournaments.find(td => td.name === f.tournament);
+        const tour = tournaments.find(td => td.name === f.tournament) || braveLeagueTournaments.find(td => td.name === f.tournament);
         const tourName = tour ? (currentLang === 'en' ? (tour.nameEn || tour.name) : tour.name) : f.tournament;
+        const tourClick = tour ? `onclick="window.location.hash = '#tournament/${tour.id}'"` : '';
+        const cursorClass = tour ? 'cursor-pointer' : '';
         return `
-                        <div class="grid grid-cols-12 gap-2 px-6 py-5 items-center hover:bg-white/5 transition group">
+                        <div class="grid grid-cols-12 gap-2 px-6 py-5 items-center hover:bg-white/5 transition group ${cursorClass}" ${tourClick}>
                             <div class="col-span-1 text-center font-bold text-[var(--text-muted)]">
                                 ${getRankIcon(f.rank)}
                             </div>
                             <div class="col-span-4 pl-2">
-                                <div class="font-extrabold text-[var(--text-heading)]">${tourName}</div>
+                                <div class="font-extrabold text-[var(--text-heading)] group-hover:text-purple-400 transition-colors">${tourName}</div>
                             </div>
                             <div class="col-span-4 flex items-center gap-2 pl-4">
                                 <span class="text-lg">${getDeckEmoji(f.deck)}</span>
@@ -1911,4 +2003,209 @@ function init() {
     handleRouting();
 }
 
+
+// --- Stores Map Logic ---
+const storesDatabase = [
+    { name: '어바웃티씨지', region: 'seoul', shortRegion: '서울', address: '서울특별시 관악구 조원로 16 로얄빌딩 2층', phone: '070-7578-2679', x: '35%', y: '16%' },
+    { name: '롤링다이스', region: 'seoul', shortRegion: '서울', address: '서울특별시 마포구 동교로 193(동진빌딩), 3층/4층', phone: '02-323-7455', x: '31%', y: '14%' },
+    { name: '카드냥', region: 'seoul', shortRegion: '서울', address: '서울특별시 강남구 논현로 77길 9, 2층', phone: '02-568-3778', x: '39%', y: '18%' },
+    { name: '하비베이스', region: 'gyeonggi', shortRegion: '경기', address: '경기도 평택시 팽성읍 안정순환로138번길 72, 3층', phone: '010-4354-5051', x: '35%', y: '36%' },
+    { name: '금정배틀시티', region: 'gyeonggi', shortRegion: '경기', address: '경기 군포시 산본천로199번길 5 3층', phone: '070-8186-2199', x: '33%', y: '28%' },
+    { name: '카드빈', region: 'gyeonggi', shortRegion: '경기', address: '경기도 성남시 분당구 황새울로214번길 8 802호', phone: '0507-1495-0984', x: '45%', y: '25%' },
+    { name: '하비게임몰', region: 'gyeonggi', shortRegion: '경기', address: '경기도 부천시 중동로254번길 104 호정프라자 604호', phone: '070-8848-7799', x: '24%', y: '22%' },
+    { name: '마블보드게임', region: 'changwon', shortRegion: '창원', address: '창원시 성산구 원이대로 589번길 6-5 2층', phone: '055-266-1980', x: '63%', y: '84%' },
+    { name: '포춘팩토리', region: 'busan', shortRegion: '부산', address: '부산광역시 남구 수영로298번길 21 지하', phone: '0507-1328-1629', x: '82%', y: '88%' },
+    { name: '부산더락', region: 'busan', shortRegion: '부산', address: '부산광역시 수영구 수영동 444-15 2층 부산더락', phone: '051-907-8074', x: '88%', y: '84%' }
+];
+
+const mapRegionsConfig = [
+    { id: 'seoul', name: '서울 섹터 (Seoul)', radius: '35px', centerX: '35%', centerY: '16%' },
+    { id: 'gyeonggi', name: '경기 섹터 (Gyeonggi)', radius: '45px', centerX: '35%', centerY: '28%' },
+    { id: 'changwon', name: '창원 섹터 (Changwon)', radius: '30px', centerX: '63%', centerY: '84%' },
+    { id: 'busan', name: '부산 섹터 (Busan)', radius: '35px', centerX: '85%', centerY: '86%' }
+];
+
+function aggregateStorePlayerData() {
+    const regionStats = {};
+    mapRegionsConfig.forEach(r => {
+        regionStats[r.id] = { stores: [], totalPlayers: 0 };
+    });
+
+    // Group stores by region
+    storesDatabase.forEach(store => {
+        if (regionStats[store.region]) {
+            regionStats[store.region].stores.push(store);
+        }
+    });
+
+    // Calculate total players who played in those specific stores
+    const allTournaments = [...tournaments, ...braveLeagueTournaments];
+    allTournaments.forEach(tour => {
+        const loc = tour.location || tour.name || '';
+        const matchedStore = storesDatabase.find(s => loc.includes(s.name) || (s.name === '카드냥' && loc.includes('카드냥 토너먼트센터')));
+
+        if (matchedStore && regionStats[matchedStore.region]) {
+            regionStats[matchedStore.region].totalPlayers += (tour.participants || 0);
+        }
+    });
+
+    return regionStats;
+}
+
+function renderStoreMap() {
+    const container = document.getElementById('players-map-container');
+    if (!container) return;
+
+    const stats = aggregateStorePlayerData();
+
+    let maxPlayers = 0;
+    Object.values(stats).forEach(s => {
+        if (s.totalPlayers > maxPlayers) maxPlayers = s.totalPlayers;
+    });
+
+    let sectorHtml = '';
+    // Draw the subtle background "Areas/Sectors" for the regions
+    mapRegionsConfig.forEach(region => {
+        sectorHtml += `
+            <div class="absolute rounded-full border border-purple-500/10 pointer-events-none" 
+                 style="left: ${region.centerX}; top: ${region.centerY}; width: ${region.radius}; height: ${region.radius}; transform: translate(-50%, -50%); box-shadow: 0 0 30px rgba(168, 85, 247, 0.05);">
+            </div>
+        `;
+    });
+
+    let nodesHtml = '';
+    storesDatabase.forEach((store, index) => {
+        const regionStats = stats[store.region];
+        let intensity = 0;
+        if (maxPlayers > 0) intensity = regionStats.totalPlayers / maxPlayers;
+
+        // Individual dots share the intensity glow of their overall region
+        const alpha = 0.4 + (intensity * 0.6);
+        const bgColor = `rgba(168, 85, 247, ${alpha})`;
+
+        // Scale the dot's size realistically based on player count (from 0.75rem min to 1.75rem max)
+        const sizeRem = 0.6 + (intensity * 1.4);
+
+        nodesHtml += `
+            <div class="map-node group" id="node-store-${index}" data-region="${store.region}"
+                 style="left: ${store.x}; top: ${store.y}; background-color: ${bgColor}; width: ${sizeRem}rem; height: ${sizeRem}rem; border: 1.5px solid rgba(255,255,255,0.4); transform: translate(-50%, -50%);"
+                 onmouseover="updateStoreMapLegend('${store.region}', ${index})"
+                 onclick="updateStoreMapLegend('${store.region}', ${index})">
+                
+                <!-- Tooltip floating above dot -->
+                <span class="map-node-label bg-slate-900/90 px-3 py-1 rounded-full border border-purple-500/30 text-[10px] shadow-xl shadow-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none -mt-6 text-white text-nowrap">
+                    ${store.name}
+                </span>
+            </div>
+        `;
+    });
+
+    const html = `
+        <div class="glass-card mb-8 p-6 lg:p-10 relative overflow-hidden flex flex-col md:flex-row gap-8 lg:gap-12 w-full animate-in slide-in-from-bottom-4 duration-500">
+            <!-- Map Graphic Area -->
+            <div class="relative w-full max-w-[350px] aspect-[4/5] mx-auto md:w-2/5 md:mx-0 shrink-0">
+                <!-- SVG map outline of South Korea -->
+                <svg viewBox="0 0 100 125" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full text-slate-800 drop-shadow-2xl opacity-60 pointer-events-none">
+                    <!-- mainland -->
+                    <path d="M35 15 L45 10 L50 5 L55 12 L65 20 L75 35 L80 45 L90 55 L95 65 L90 78 L85 85 L90 95 L80 105 L70 108 L60 115 L50 112 L40 115 L30 110 L20 105 L15 95 L25 85 L20 75 L10 65 L5 55 L15 45 L20 35 L30 25 Z" 
+                          fill="currentColor" stroke="rgba(168, 85, 247, 0.2)" stroke-width="0.5" stroke-linejoin="round"/>
+                    <!-- jeju -->
+                    <ellipse cx="25" cy="118" rx="6" ry="3" fill="currentColor" stroke="rgba(168, 85, 247, 0.2)" stroke-width="0.5"/>
+                    <!-- ulleungdo -->
+                    <ellipse cx="92" cy="35" rx="1.5" ry="1.5" fill="currentColor" stroke="rgba(168, 85, 247, 0.2)" stroke-width="0.5"/>
+                </svg>
+
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    ${sectorHtml}
+                </div>
+
+                <!-- Region Nodes -->
+                <div class="absolute inset-0 z-10 select-none">
+                    ${nodesHtml}
+                </div>
+            </div>
+
+            <!-- Map Legend & Stats Area -->
+            <div class="w-full md:w-3/5 flex flex-col min-h-[400px]">
+                <div class="mb-4">
+                    <h3 class="text-xs font-black text-purple-400 uppercase tracking-widest mb-1 shadow-sm">Official Stores Archive</h3>
+                    <h4 id="store-tooltip-title" class="text-3xl font-black text-white">대한민국 (South Korea)</h4>
+                    <p id="store-tooltip-desc" class="text-[var(--text-muted)] font-bold text-sm mt-2">
+                        지도 위의 <span class="text-white">보라색 스팟(매장)</span>에 마우스를 올리면 해당 에리어의 플레이어 규모와 매장 정보가 표시됩니다.
+                    </p>
+                </div>
+                
+                <!-- Dynamic Content Area -->
+                <div id="store-tooltip-content" class="flex-1 bg-slate-900/50 rounded-2xl border border-white/5 p-4 overflow-y-auto custom-scrollbar">
+                    <div class="flex flex-col items-center justify-center h-full text-slate-500/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-3"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <p class="font-bold text-sm">매장 스팟을 선택해주세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
+window.updateStoreMapLegend = function (regionId, hoveredStoreIndex) {
+    const regionObj = mapRegionsConfig.find(r => r.id === regionId);
+    if (!regionObj) return;
+
+    const stats = aggregateStorePlayerData()[regionId];
+
+    document.getElementById('store-tooltip-title').innerText = regionObj.name;
+    document.getElementById('store-tooltip-desc').innerHTML = `이 에리어 내 <strong>${stats.stores.length}</strong>개의 공식 매장에서 <strong class="text-purple-400">${stats.totalPlayers}명</strong>의 선수 참전`;
+
+    let storesListHtml = '<div class="space-y-3">';
+    stats.stores.forEach(store => {
+        // Find the index of this store in the global database to check if it's the currently hovered one
+        const globalIndex = storesDatabase.findIndex(s => s.name === store.name);
+        const isHovered = globalIndex === hoveredStoreIndex;
+
+        const borderClass = isHovered ? 'border-purple-400 bg-purple-900/40' : 'border-white/5 hover:border-purple-500/30';
+
+        storesListHtml += `
+            <div class="glass-card p-4 transition-all duration-300 border ${borderClass}">
+                <div class="flex items-center justify-between mb-2">
+                    <h5 class="text-white font-black text-lg flex items-center gap-2">
+                        ${isHovered ? '<span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>' : ''}
+                        ${store.name}
+                    </h5>
+                    <span class="text-[10px] font-black tracking-widest bg-purple-500/20 text-purple-300 px-2 py-1 rounded-md">${store.shortRegion}</span>
+                </div>
+                <div class="flex items-start gap-2 text-slate-400 text-xs font-medium mb-1 line-clamp-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>${store.address}</span>
+                </div>
+                <div class="flex items-center gap-2 text-slate-400 text-xs font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                    <span>${store.phone}</span>
+                </div>
+            </div>
+        `;
+    });
+    storesListHtml += '</div>';
+
+    document.getElementById('store-tooltip-content').innerHTML = storesListHtml;
+
+    document.querySelectorAll('.map-node').forEach(n => {
+        n.classList.remove('active', 'border-purple-400', 'scale-125');
+        // Dim the nodes that are NOT in the hovered region
+        if (n.getAttribute('data-region') !== regionId) {
+            n.style.opacity = '0.3';
+        } else {
+            n.style.opacity = '1';
+        }
+    });
+
+    const activeNode = document.getElementById('node-store-' + hoveredStoreIndex);
+    if (activeNode) {
+        activeNode.classList.add('active', 'border-purple-400', 'scale-125');
+        activeNode.style.zIndex = '50';
+    }
+};
+
+// Initialize application after all variables are declared
 init();

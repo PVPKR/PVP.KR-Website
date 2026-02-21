@@ -35,11 +35,25 @@
                         Tournament Results & Analytics</p>
                 </div>
             </div>
-            <nav class="hidden md:flex gap-8 items-center font-bold text-[var(--nav-text)]">
-                <a href="#players" id="nav-players" class="hover:text-purple-400 transition"
-                    onclick="if(window.location.hash !== '') { renderHome(); setTimeout(() => document.getElementById('tournaments-section').scrollIntoView({behavior: 'smooth'}), 100); }">Players</a>
+            <!-- Desktop Search Bar -->
+            <div class="hidden lg:flex flex-1 max-w-sm mx-10 relative group">
+                <input type="text" id="header-search-input" placeholder="Search players..."
+                    class="w-full bg-white/5 hover:bg-white/10 border border-white/10 group-hover:border-white/20 rounded-full px-5 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="absolute right-4 top-3 text-white/40 group-focus-within:text-purple-400 transition-colors">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </svg>
+            </div>
+
+            <nav class="hidden md:flex gap-8 items-center font-bold text-[var(--nav-text)] ml-auto">
                 <a href="#tournaments-section" id="nav-tournaments" class="hover:text-purple-400 transition"
                     onclick="if(window.location.hash !== '') { renderHome(); setTimeout(() => document.getElementById('tournaments-section').scrollIntoView({behavior: 'smooth'}), 100); }">Tournaments</a>
+                <a href="#players" id="nav-players" class="hover:text-purple-400 transition"
+                    onclick="if(window.location.hash === '#players') { renderPlayersDirectory(); }">Players</a>
+                <a href="#stores" id="nav-stores" class="hover:text-purple-400 transition text-purple-200"
+                    onclick="if(window.location.hash === '#stores') { renderStoresDirectory(); }">Stores (Beta)</a>
 
                 <div id="auth-container" class="ml-2">
                     <button onclick="openAuthModal()"
@@ -56,6 +70,18 @@
                         class="text-xs opacity-40 hover:opacity-100 transition-colors duration-200">EN</button>
                 </div>
             </nav>
+
+            <!-- Mobile Search Bar (Header) -->
+            <div class="flex md:hidden flex-1 mx-4 relative group">
+                <input type="text" id="mobile-header-search-input" placeholder="Search..."
+                    class="w-full bg-white/5 hover:bg-white/10 border border-white/10 group-hover:border-white/20 rounded-full px-4 py-2 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="absolute right-3 top-2.5 text-white/40 group-focus-within:text-purple-400 transition-colors">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </svg>
+            </div>
 
             <!-- Mobile Menu Toggle -->
             <button id="mobile-menu-toggle" onclick="toggleMobileMenu()"
@@ -74,15 +100,20 @@
             class="flex flex-col md:hidden absolute top-full left-0 w-full bg-[var(--header-bg)] border-b border-[var(--header-border)] backdrop-blur-xl shadow-2xl transition-all duration-300 origin-top transform scale-y-0 opacity-0 pointer-events-none z-40">
             <div class="px-6 py-8 flex flex-col gap-6">
                 <!-- Mobile Navigation Links -->
-                <a href="#players" id="mobile-nav-players"
-                    class="text-white font-bold text-xl hover:text-purple-400 transition"
-                    onclick="toggleMobileMenu(); if(window.location.hash !== '') { renderHome(); }">
-                    Players
-                </a>
                 <a href="#tournaments-section" id="mobile-nav-tournaments"
                     class="text-white font-bold text-xl hover:text-purple-400 transition"
                     onclick="toggleMobileMenu(); if(window.location.hash !== '') { renderHome(); setTimeout(() => document.getElementById('tournaments-section').scrollIntoView({behavior: 'smooth'}), 100); }">
                     Tournaments
+                </a>
+                <a href="#players" id="mobile-nav-players"
+                    class="text-white font-bold text-xl hover:text-purple-400 transition"
+                    onclick="toggleMobileMenu(); if(window.location.hash === '#players') { renderPlayersDirectory(); }">
+                    Players
+                </a>
+                <a href="#stores" id="mobile-nav-stores"
+                    class="text-white font-bold text-xl hover:text-purple-400 transition text-purple-200"
+                    onclick="toggleMobileMenu(); if(window.location.hash === '#stores') { renderStoresDirectory(); }">
+                    Stores (Beta)
                 </a>
 
                 <!-- Mobile Auth Container -->
