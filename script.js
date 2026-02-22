@@ -921,7 +921,6 @@ const playerDatabase = {
     '신재용': { name: '신재용', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 16, deck: '적색 덱' }] },
     '고윤성': {
         name: '고윤성', country: 'KR', finishes: [
-            { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 25, deck: '녹색 덱' },
             { tournament: '브레이브 리그 - 서울 마포 롤링다이스', date: '2026-02-01', rank: 1, deck: '녹색 덱' },
             { tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-08', rank: 1, deck: '녹색 덱' },
             { tournament: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-15', rank: 1, deck: '녹색 덱' },
