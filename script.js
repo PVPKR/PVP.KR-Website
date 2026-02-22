@@ -170,7 +170,7 @@ const properNounsEn = {
     '안현빈': 'Hyun-Bin Ahn', '최진욱': 'Jin-Wook Choi', '진수': 'Jin-Soo', '김종민': 'Jong-Min Kim', '한상원': 'Sang-Won Han', '왕현식': 'Hyun-Sik Wang',
     '조승현': 'Seung-Hyun Cho', '조아론': 'Aaron Cho', '정지원': 'Ji-Won Jung', '황상철': 'Sang-Chul Hwang', '황지욱': 'Ji-Wook Hwang', '황선빈': 'Sun-Bin Hwang',
     '김성범': 'Sung-Bum Kim', '이종석': 'Jong-Seok Lee', '이희수': 'Hee-Soo Lee', '이병재': 'Byung-Jae Lee', '김예담': 'Ye-Dam Kim', '김수영': 'Soo-Young Kim',
-    '한용희': 'Yong-Hee Han', '권솔': 'Sol Kwon', 'Player 1': 'Player 1', 'Player 2': 'Player 2', 'Player 3': 'Player 3', 'Player 4': 'Player 4', 'Player 5': 'Player 5', 'Player 6': 'Player 6', 'Player 7': 'Player 7', 'Player 8': 'Player 8', 'Player 9': 'Player 9', 'Player 10': 'Player 10',
+    '한용희': 'Yong-Hee Han', '권솔': 'Sol Kwon', '마라탕': 'Maratang', '이승민': 'Seung-Min Lee', 'Player 1': 'Player 1', 'Player 2': 'Player 2', 'Player 3': 'Player 3', 'Player 4': 'Player 4', 'Player 5': 'Player 5', 'Player 6': 'Player 6', 'Player 7': 'Player 7', 'Player 8': 'Player 8', 'Player 9': 'Player 9', 'Player 10': 'Player 10',
 
     '브레이브 리그 - 서울 마포 롤링다이스': 'Brave League - Rolling Dice, Mapo, Seoul',
     '브레이브 리그 - 서울 구로 어바웃티씨지': 'Brave League - About TCG, Guro, Seoul',
@@ -796,6 +796,47 @@ const tournaments = [{
         { rank: 6, player: '김동환', deck: '적색 덱', score: '1-2', swissRank: 6, country: 'KR' },
         { rank: 7, player: '김지민', deck: '녹색 덱', score: '1-2', swissRank: 7, country: 'KR' }
     ]
+}, {
+    id: 124, name: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-22', status: 'completed', participants: 22, location: '서울 구로',
+    deckDistribution: { '녹색 덱': 6, '황색 덱': 5, '청색 덱': 5, '적색 덱': 3, '자색 덱': 3 },
+    topCutDistribution: { '녹색 덱': 2, '청색 덱': 2, '황색 덱': 4 },
+    bracket: {
+        quarterfinals: [
+            { player1: '고윤성', player2: '한용희', winner: '고윤성' },
+            { player1: '김도현', player2: '박현우', winner: '박현우' },
+            { player1: '이현수', player2: '김영진', winner: '김영진' },
+            { player1: '이주영', player2: '이명준', winner: '이주영' }
+        ],
+        semifinals: [
+            { player1: '고윤성', player2: '박현우', winner: '고윤성' },
+            { player1: '김영진', player2: '이주영', winner: '이주영' }
+        ],
+        final: { player1: '고윤성', player2: '이주영', winner: '고윤성' }
+    },
+    standings: [
+        { rank: 1, player: '고윤성', deck: '녹색 덱', score: '4-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '이주영', deck: '녹색 덱', score: '3-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '김영진', deck: '황색 덱', score: '3-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '박현우', deck: '황색 덱', score: '3-1', swissRank: 4, country: 'KR' },
+        { rank: 5, player: '이현수', deck: '청색 덱', score: '3-1', swissRank: 5, country: 'KR' },
+        { rank: 6, player: '김도현', deck: '황색 덱', score: '3-1', swissRank: 6, country: 'KR' },
+        { rank: 7, player: '이명준', deck: '황색 덱', score: '3-1', swissRank: 7, country: 'KR' },
+        { rank: 8, player: '한용희', deck: '청색 덱', score: '2-2', swissRank: 8, country: 'KR' },
+        { rank: 9, player: '황상진', score: '2-2', swissRank: 9, country: 'KR' },
+        { rank: 10, player: '이혁준', score: '2-2', swissRank: 10, country: 'KR' },
+        { rank: 11, player: '임정섭', score: '2-2', swissRank: 11, country: 'KR' },
+        { rank: 12, player: '마라탕', score: '2-2', swissRank: 12, country: 'KR' },
+        { rank: 13, player: '이병재', score: '2-2', swissRank: 13, country: 'KR' },
+        { rank: 14, player: '전시우', score: '2-2', swissRank: 14, country: 'KR' },
+        { rank: 15, player: '진수', score: '2-2', swissRank: 15, country: 'KR' },
+        { rank: 16, player: '이준희', score: '2-2', swissRank: 16, country: 'KR' },
+        { rank: 17, player: '박창남', score: '1-3', swissRank: 17, country: 'KR' },
+        { rank: 18, player: '정선우', score: '1-3', swissRank: 18, country: 'KR' },
+        { rank: 19, player: '이태연', score: '1-3', swissRank: 19, country: 'KR' },
+        { rank: 20, player: '김종민', score: '1-3', swissRank: 20, country: 'KR' },
+        { rank: 21, player: '이승민', score: '0-4', swissRank: 21, country: 'KR' },
+        { rank: 22, player: '김선규', score: '0-4', swissRank: 22, country: 'KR' }
+    ]
 }];
 
 const playerDatabase = {
@@ -880,11 +921,14 @@ const playerDatabase = {
     '신재용': { name: '신재용', country: 'KR', finishes: [{ tournament: '2025 썸머 챔피언컵', date: '2025-07-13', rank: 16, deck: '적색 덱' }] },
     '고윤성': {
         name: '고윤성', country: 'KR', finishes: [
+            { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 25, deck: '녹색 덱' },
             { tournament: '브레이브 리그 - 서울 마포 롤링다이스', date: '2026-02-01', rank: 1, deck: '녹색 덱' },
             { tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-08', rank: 1, deck: '녹색 덱' },
             { tournament: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-15', rank: 1, deck: '녹색 덱' },
             { tournament: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-18', rank: 1, deck: '녹색 덱' },
-            { tournament: '브레이브 리그 - 경기 평택 하비베이스', date: '2026-02-21', rank: 1, deck: '녹색 덱' }
+            { tournament: '브레이브 리그 - 경기 부천 하비게임몰', date: '2026-02-07', rank: 1, deck: '녹색 덱' },
+            { tournament: '브레이브 리그 - 경기 평택 하비베이스', date: '2026-02-21', rank: 1, deck: '녹색 덱' },
+            { tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-22', rank: 1, deck: '녹색 덱' }
         ]
     },
     '이주영': { name: '이주영', country: 'KR', finishes: [{ tournament: '브레이브 리그 - 서울 구로 어바웃티씨지', date: '2026-02-01', rank: 1, deck: '녹색 덱' }] },
@@ -958,7 +1002,7 @@ const braveLeagueTournaments = [
     { id: 120, name: '경기 부천 하비게임몰', date: '2월 21일(토) 14:00', participants: 8 },
     { id: 121, name: '경기 군포 금정배틀시티', date: '2월 21일(토) 15:00', participants: 13 },
     { id: 122, name: '창원 마블보드게임', date: '2월 21일(토) 15:00', participants: 7 },
-    { id: 124, name: '서울 구로 어바웃티씨지', date: '2월 22일(일) 15:00', participants: 0 },
+    { id: 124, name: '서울 구로 어바웃티씨지', date: '2월 22일(일) 15:00', participants: 22 },
     { id: 125, name: '경기 성남 카드빈', date: '2월 28일(토) 13:00', participants: 0 },
     { id: 126, name: '경기 군포 금정배틀시티', date: '2월 28일(토) 15:00', participants: 0 }
 ];
