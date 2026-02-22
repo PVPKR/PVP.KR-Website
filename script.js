@@ -1637,13 +1637,13 @@ function renderTournamentDetails(id) {
                                             </div>
                                             <div class="flex flex-col divide-y divide-white/5">
                                                 <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'bg-yellow-500/20' : ''}">
-                                                    <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'text-white' : 'text-slate-400'}">
+                                                    <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? 'text-white' : 'text-slate-400'} cursor-pointer hover:text-yellow-400 transition" onclick="showPlayerDetails('${tournament.bracket.final.player1}')">
                                                         <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player1)}</span>${t_name(tournament.bracket.final.player1)}
                                                     </span>
                                                     ${tournament.bracket.final.winner === tournament.bracket.final.player1 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
                                                 </div>
                                                 <div class="flex items-center justify-between px-6 py-5 ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'bg-yellow-500/20' : ''}">
-                                                    <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'text-white' : 'text-slate-400'}">
+                                                    <span class="font-black text-lg ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? 'text-white' : 'text-slate-400'} cursor-pointer hover:text-yellow-400 transition" onclick="showPlayerDetails('${tournament.bracket.final.player2}')">
                                                         <span class="mr-1">${getBracketEmoji(tournament.bracket.final.player2)}</span>${t_name(tournament.bracket.final.player2)}
                                                     </span>
                                                     ${tournament.bracket.final.winner === tournament.bracket.final.player2 ? `<span class="px-2 py-1 rounded-md bg-yellow-500 text-slate-900 text-[10px] font-black">${t('champion')}</span>` : ''}
