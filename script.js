@@ -1579,13 +1579,13 @@ function renderTournamentDetails(id) {
                                             <div class="relative glass-card overflow-hidden border border-white/5">
                                                 <div class="flex flex-col divide-y divide-white/5">
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player1 ? 'bg-purple-500/20' : ''}">
-                                                        <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">
+                                                        <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'} cursor-pointer hover:text-purple-400 transition" onclick="showPlayerDetails('${match.player1}')">
                                                             <span class="mr-1">${getBracketEmoji(match.player1)}</span>${t_name(match.player1)}
                                                         </span>
                                                         ${match.winner === match.player1 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player2 ? 'bg-purple-500/20' : ''}">
-                                                        <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'}">
+                                                        <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'} cursor-pointer hover:text-purple-400 transition" onclick="showPlayerDetails('${match.player2}')">
                                                             <span class="mr-1">${getBracketEmoji(match.player2)}</span>${t_name(match.player2)}
                                                         </span>
                                                         ${match.winner === match.player2 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
@@ -1608,13 +1608,13 @@ function renderTournamentDetails(id) {
                                             <div class="relative glass-card overflow-hidden">
                                                 <div class="flex flex-col divide-y divide-white/5">
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player1 ? 'bg-purple-500/20' : ''}">
-                                                        <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'}">
+                                                        <span class="font-bold text-sm ${match.winner === match.player1 ? 'text-white' : 'text-slate-400'} cursor-pointer hover:text-purple-400 transition" onclick="showPlayerDetails('${match.player1}')">
                                                             <span class="mr-1">${getBracketEmoji(match.player1)}</span>${t_name(match.player1)}
                                                         </span>
                                                         ${match.winner === match.player1 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
                                                     </div>
                                                     <div class="flex items-center justify-between px-4 py-3 ${match.winner === match.player2 ? 'bg-purple-500/20' : ''}">
-                                                        <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'}">
+                                                        <span class="font-bold text-sm ${match.winner === match.player2 ? 'text-white' : 'text-slate-400'} cursor-pointer hover:text-purple-400 transition" onclick="showPlayerDetails('${match.player2}')">
                                                             <span class="mr-1">${getBracketEmoji(match.player2)}</span>${t_name(match.player2)}
                                                         </span>
                                                         ${match.winner === match.player2 ? `<span class="text-xs font-black text-purple-400">WIN</span>` : ''}
