@@ -1362,7 +1362,9 @@ function renderHomeView() {
 
     // Recent Tournaments
     const recentList = document.getElementById('recent-tournaments-list');
-    recentList.innerHTML = tournaments.filter(t => t.id < 100).map(tour => `
+    recentList.innerHTML = tournaments.filter(t => t.id < 100)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .map(tour => `
         <div onclick="showTournamentDetails(${tour.id})" class="glass-card p-5 flex items-center justify-between cursor-pointer group">
             <div class="flex items-center gap-5">
                 <div class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-2xl group-hover:bg-purple-500/20 transition">🏆</div>
