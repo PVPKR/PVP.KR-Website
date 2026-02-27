@@ -1063,9 +1063,50 @@ function showAllUpcomingView() { window.location.hash = '#upcoming'; }
 function showAllBraveLeagueView() { window.location.hash = '#brave-league'; }
 function renderHome() { window.location.hash = ''; }
 
+// Search function
+function handlePlayerSearch(inputElement) {
+    const query = inputElement.value.trim();
+    if (!query) return;
+
+    if (playerDatabase[query]) {
+        // Player found -> Navigate
+        inputElement.value = ''; // clear input
+        if (window.innerWidth < 768) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('scale-y-0')) {
+                toggleMobileMenu(); // close mobile menu if open
+            }
+        }
+        showPlayerDetails(query);
+    } else {
+        // Player not found
+        alert(currentLang === 'en' ? `Player '${query}' not found in the database. (Please use exact registered name)` : `'${query}' 플레이어를 찾을 수 없습니다. (등록된 정확한 닉네임을 사용해주세요)`);
+    }
+}
+
+// Setup search listeners
+function setupSearchListeners() {
+    const dInput = document.getElementById('header-search-input');
+    const mInput = document.getElementById('mobile-header-search-input');
+
+    if (dInput) {
+        dInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handlePlayerSearch(dInput);
+        });
+    }
+    if (mInput) {
+        mInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handlePlayerSearch(mInput);
+        });
+    }
+}
+
 // Listen for hash changes
 window.addEventListener('hashchange', handleRouting);
-window.addEventListener('load', handleRouting);
+window.addEventListener('load', () => {
+    handleRouting();
+    setupSearchListeners();
+});
 
 // --- Auth Logic ---
 
