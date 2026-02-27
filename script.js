@@ -1007,6 +1007,7 @@ const braveLeagueTournaments = [
 ];
 
 const upcomingTournaments = [
+    { id: 1, name: '2026 브레이브 리그 시즌 1 파이널 - 경기 부천 하비게임몰', nameEn: '2026 Brave League Season 1 Final - Hobby Game Mall, Bucheon', date: '2026년 3월 14일(토)', dateEn: 'March 14, 2026 (Sat)', status: 'upcoming', externalURL: 'https://cookierunbraverse.com/ko/notice/detail?id=1384' },
     { id: 2, name: '월드 챔피언십 25-26', nameEn: 'World Championship 25-26', date: '2026년 4월 (예정)', dateEn: 'April 2026 (TBD)', status: 'upcoming', externalURL: 'https://cookierunbraverse.com/ko/notice/detail?id=994' },
     { id: 3, name: '브레이브리그 파이널 시즌 1', nameEn: 'Brave League Final Season 1', date: '2026년 6월 (예정)', dateEn: 'June 2026 (TBD)', status: 'upcoming' },
     { id: 4, name: '26-27 썸머 챔피언컵', nameEn: '26-27 Summer Champion Cup', date: '2026년 7월 (예정)', dateEn: 'July 2026 (TBD)', status: 'upcoming' },
