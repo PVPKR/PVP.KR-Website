@@ -835,12 +835,38 @@ const tournaments = [{
         { rank: 19, player: '이태연', score: '1-3', swissRank: 19, country: 'KR' },
         { rank: 20, player: '김종민', score: '1-3', swissRank: 20, country: 'KR' },
         { rank: 21, player: '이승민', score: '0-4', swissRank: 21, country: 'KR' },
-        { rank: 22, player: '김선규', score: '0-4', swissRank: 22, country: 'KR' }
+    ]
+}, {
+    id: 125, name: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-28', status: 'completed', participants: 9, location: '경기 성남',
+    deckDistribution: { '적색 덱': 1, '녹색 덱': 5, '청색 덱': 3 },
+    topCutDistribution: { '녹색 덱': 2, '적색 덱': 1, '청색 덱': 1 },
+    bracket: {
+        semifinals: [
+            { player1: '이현수', player2: '이희수', winner: '이현수' },
+            { player1: '전시우', player2: '마라탕', winner: '전시우' }
+        ],
+        final: { player1: '이현수', player2: '전시우', winner: '전시우' }
+    },
+    standings: [
+        { rank: 1, player: '이현수', deck: '적색 덱', score: '4-0', swissRank: 1, country: 'KR' },
+        { rank: 2, player: '전시우', deck: '녹색 덱', score: '3-1', swissRank: 2, country: 'KR' },
+        { rank: 3, player: '마라탕', deck: '녹색 덱', score: '3-1', swissRank: 3, country: 'KR' },
+        { rank: 4, player: '이희수', deck: '청색 덱', score: '3-1', swissRank: 4, country: 'KR' },
+        { rank: 5, player: '이태연', deck: '녹색 덱', score: '2-2', swissRank: 5, country: 'KR' },
+        { rank: 6, player: '이희지', deck: '청색 덱', score: '2-2', swissRank: 6, country: 'KR' },
+        { rank: 7, player: '오민우', deck: '녹색 덱', score: '1-3', swissRank: 7, country: 'KR' },
+        { rank: 8, player: '이병재', deck: '녹색 덱', score: '1-3', swissRank: 8, country: 'KR' },
+        { rank: 9, player: '김선규', deck: '녹색 덱', score: '1-3', swissRank: 9, country: 'KR' }
     ]
 }];
 
 const playerDatabase = {
-    '전시우': { name: '전시우', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 1, deck: '녹색 덱' }] },
+    '전시우': {
+        name: '전시우', country: 'KR', finishes: [
+            { tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 1, deck: '녹색 덱' },
+            { tournament: '브레이브 리그 - 경기 성남 카드빈', date: '2026-02-28', rank: 1, deck: '녹색 덱' }
+        ]
+    },
     '김민서': { name: '김민서', country: 'KR', finishes: [{ tournament: '25-26 윈터 챔피언 컵', date: '2026-01-18', rank: 2, deck: '녹색 덱' }] },
     '류지현': {
         name: '류지현', country: 'KR', finishes: [
@@ -1002,7 +1028,7 @@ const braveLeagueTournaments = [
     { id: 121, name: '경기 군포 금정배틀시티', date: '2월 21일(토) 15:00', participants: 13 },
     { id: 122, name: '창원 마블보드게임', date: '2월 21일(토) 15:00', participants: 7 },
     { id: 124, name: '서울 구로 어바웃티씨지', date: '2월 22일(일) 15:00', participants: 22 },
-    { id: 125, name: '경기 성남 카드빈', date: '2월 28일(토) 13:00', participants: 0 },
+    { id: 125, name: '경기 성남 카드빈', date: '2월 28일(토) 13:00', participants: 9 },
     { id: 126, name: '경기 군포 금정배틀시티', date: '2월 28일(토) 15:00', participants: 0 }
 ];
 
